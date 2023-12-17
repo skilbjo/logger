@@ -1,0 +1,11 @@
+ignores: [
+  '@commitlint/cli',
+  '@commitlint/config-angular',
+  '@affixapi/config-rc',
+  'depcheck',
+  'husky',
+  'ts-node',
+  'eslint-import-resolver-typescript',
+  '@src/index',
+  '@test/helper'
+]

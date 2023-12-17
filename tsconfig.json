@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "extends": "@affixapi/config-rc/tsconfig.json",
+  "include": [
+    "src/**/*.ts",
+    "test/**/*.ts",
+    ".eslintrc.js",
+    "jest.config.js"
+  ],
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "@src/*": [
+        "./src/*"
+      ],
+      "@test/*": [
+        "./test/*"
+      ]
+    },
+    "typeRoots": [
+      "./node_modules/@types"
+    ]
+  }
+}

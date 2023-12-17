@@ -1,0 +1,48 @@
+name: release
+
+on:
+  push:
+    branches:
+      - master
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  publish-artifact:
+    permissions:
+      issues: write
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.ACTIONS_TOKEN }}
+          persist-credentials: false
+      - uses: actions/setup-node@v3
+        with:
+          # node-version: 16 # really should be n18
+          node-version-file: .nvmrc # github actions doesn't seem to run w n18 :(
+          cache: npm
+
+      - name: Set up NPM authentication
+        run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.ACTIONS_TOKEN }}" >> ~/.npmrc
+
+      - uses: cycjimmy/semantic-release-action@v4.0.0
+        with:
+          semantic_version: 18
+          extra_plugins: |
+            @semantic-release/git@10.0.1
+            @semantic-release/changelog@6.0.0
+            @semantic-release/exec@6.0.1
+        env:
+          GITHUB_TOKEN: ${{ secrets.ACTIONS_TOKEN }}
+          NPM_TOKEN: ${{ secrets.ACTIONS_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.ACTIONS_TOKEN }}
+
+      - name: codecov
+        run: |
+          if [[ $(( $RANDOM % 2 )) -eq 0 ]]; then
+            bash <(curl -s https://codecov.io/bash);
+          fi
