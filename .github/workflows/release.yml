@@ -20,7 +20,7 @@ jobs:
         with:
           token: ${{ secrets.ACTIONS_TOKEN }}
           persist-credentials: false
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           # node-version: 16 # really should be n18
           node-version-file: .nvmrc # github actions doesn't seem to run w n18 :(
