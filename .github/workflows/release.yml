@@ -42,7 +42,8 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.ACTIONS_TOKEN }}
 
       - name: codecov
-        run: |
-          if [[ $(( $RANDOM % 2 )) -eq 0 ]]; then
-            bash <(curl -s https://codecov.io/bash);
-          fi
+        run: bash <(curl -s https://codecov.io/bash);
+        # run: |
+          # if [[ $(( $RANDOM % 2 )) -eq 0 ]]; then
+            # bash <(curl -s https://codecov.io/bash);
+          # fi
