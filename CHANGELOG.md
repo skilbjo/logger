@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/affixapi/logger/compare/v1.0.1...v1.0.2) (2023-12-26)
+
+
+### Bug Fixes
+
+* **deps-dev:** bump @affixapi/config-rc from 1.0.0 to 1.0.1 ([#9](https://github.com/affixapi/logger/issues/9)) ([9dfdb5f](https://github.com/affixapi/logger/commit/9dfdb5f78357cd27a454be1bdf98f7b4595d6584))
+
 ## [1.0.1](https://github.com/affixapi/logger/compare/v1.0.0...v1.0.1) (2023-12-18)
 
 
