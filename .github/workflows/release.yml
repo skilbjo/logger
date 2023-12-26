@@ -22,8 +22,7 @@ jobs:
           persist-credentials: false
       - uses: actions/setup-node@v4
         with:
-          # node-version: 16 # really should be n18
-          node-version-file: .nvmrc # github actions doesn't seem to run w n18 :(
+          node-version-file: .nvmrc
           cache: npm
 
       - name: Set up NPM authentication
@@ -42,8 +41,4 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.ACTIONS_TOKEN }}
 
       - name: codecov
-        run: bash <(curl -s https://codecov.io/bash);
-        # run: |
-          # if [[ $(( $RANDOM % 2 )) -eq 0 ]]; then
-            # bash <(curl -s https://codecov.io/bash);
-          # fi
+        run: bash <(curl -s https://codecov.io/bash); # if [[ $(( $RANDOM % 2 )) -eq 0 ]]; then bash <(curl -s https://codecov.io/bash); fi
