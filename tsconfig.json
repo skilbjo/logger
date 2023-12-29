@@ -4,8 +4,8 @@
   "include": [
     "src/**/*.ts",
     "test/**/*.ts",
-    ".eslintrc.js",
-    "jest.config.js"
+    ".eslintrc.cjs",
+    "jest.config.ts"
   ],
   "compilerOptions": {
     "baseUrl": "./",

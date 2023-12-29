@@ -1,4 +1,6 @@
-module.exports = {
+import type { JestConfigWithTsJest } from 'ts-jest';
+
+const config: JestConfigWithTsJest = {
   coverageReporters: ['lcov'],
   moduleFileExtensions: ['ts', 'json', 'js'],
   moduleNameMapper: {
@@ -19,3 +21,5 @@ module.exports = {
     ],
   },
 };
+
+export default config;

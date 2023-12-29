@@ -4,9 +4,7 @@ import * as helper from '@test/helper';
 
 describe('LambdaLogger', () => {
   describe('when no config environment variables exist', () => {
-    beforeEach(() => {
-      jest.resetModules();
-    });
+    beforeEach(() => jest.resetModules());
 
     it('logs an info-level message', () => {
       const { stream, getMessage } = helper.fakeStream();
@@ -39,6 +37,7 @@ describe('LambdaLogger', () => {
   describe('when the expected environment variables are set', () => {
     beforeEach(() => {
       jest.resetModules();
+
       process.env = Object.assign(process.env, {
         AWS_LAMBDA_FUNCTION_NAME: 'fakeLambdaFunctionName',
       });
@@ -75,9 +74,7 @@ describe('LambdaLogger', () => {
   });
 
   describe('when the payload of the log message is complex', () => {
-    beforeEach(() => {
-      jest.resetModules();
-    });
+    beforeEach(() => jest.resetModules());
 
     it('handles logging an error correctly', () => {
       const { stream, getMessage } = helper.fakeStream();
@@ -127,9 +124,7 @@ describe('LambdaLogger', () => {
   });
 
   describe('when you need something redacted', () => {
-    beforeEach(() => {
-      jest.resetModules();
-    });
+    beforeEach(() => jest.resetModules());
 
     it('redacts the specified value', () => {
       const { stream, getMessage } = helper.fakeStream();
@@ -147,9 +142,7 @@ describe('LambdaLogger', () => {
   });
 
   describe('when you need to override the mixin', () => {
-    beforeEach(() => {
-      jest.resetModules();
-    });
+    beforeEach(() => jest.resetModules());
 
     it('logs what your mixin returns', () => {
       const { stream, getMessage } = helper.fakeStream();
@@ -173,9 +166,7 @@ describe('LambdaLogger', () => {
   });
 
   describe('when you need to override the formatters', () => {
-    beforeEach(() => {
-      jest.resetModules();
-    });
+    beforeEach(() => jest.resetModules());
 
     it('logs what your formatter defines', () => {
       const { stream, getMessage } = helper.fakeStream();
@@ -206,9 +197,7 @@ describe('LambdaLogger', () => {
   });
 
   describe(logger.create, () => {
-    beforeEach(() => {
-      jest.resetModules();
-    });
+    beforeEach(() => jest.resetModules());
 
     it('should always give a fresh logger', () => {
       const fake1 = helper.fakeStream();
