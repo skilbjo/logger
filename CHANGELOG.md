@@ -1,3 +1,13 @@
+## [1.0.3](https://github.com/affixapi/logger/compare/v1.0.2...v1.0.3) (2024-01-19)
+
+
+### Bug Fixes
+
+* **deps-dev:** bump @affixapi/config-rc from 1.0.1 to 1.0.2 ([#10](https://github.com/affixapi/logger/issues/10)) ([d7d9048](https://github.com/affixapi/logger/commit/d7d90488be1233c14aee0a1ba6c4b956bc77ef3a))
+* **deps-dev:** bump ts-patch from 3.1.1 to 3.1.2 ([#12](https://github.com/affixapi/logger/issues/12)) ([e91e5c4](https://github.com/affixapi/logger/commit/e91e5c46bcfed766c0a8f257e4a67f9f3bc4097a))
+* **deps:** bump pino from 8.17.1 to 8.17.2 ([#11](https://github.com/affixapi/logger/issues/11)) ([dce1e19](https://github.com/affixapi/logger/commit/dce1e19cd9ccf30b9974fab53eb262cb3d240688))
+* **node:** bump node version ([fea7e4d](https://github.com/affixapi/logger/commit/fea7e4df0f9a43d606c4c15fc0c9bc84b64ee93b))
+
 ## [1.0.2](https://github.com/affixapi/logger/compare/v1.0.1...v1.0.2) (2023-12-26)
 
 
