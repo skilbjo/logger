@@ -27,7 +27,7 @@
     "openapi"
   ],
   "dependencies": {
-    "pino": "8.17.2",
+    "pino": "8.18.0",
     "winston": "3.11.0"
   },
   "devDependencies": {
