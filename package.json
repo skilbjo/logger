@@ -31,8 +31,8 @@
     "winston": "3.13.0"
   },
   "devDependencies": {
-    "@affixapi/config-rc": "1.0.6",
-    "@affixapi/eslint-config-rc": "npm:@affixapi/config-rc@1.0.5",
+    "@affixapi/config-rc": "1.0.7",
+    "@affixapi/eslint-config-rc": "npm:@affixapi/config-rc@1.0.7",
     "@commitlint/cli": "17.0.0",
     "@commitlint/config-angular": "17.0.0",
     "depcheck": "1.4.7",
