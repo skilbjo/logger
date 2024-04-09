@@ -1,3 +1,10 @@
+## [1.0.6](https://github.com/affixapi/logger/compare/v1.0.5...v1.0.6) (2024-04-09)
+
+
+### Bug Fixes
+
+* **semantic:** downgrade seamntic-release ([c187096](https://github.com/affixapi/logger/commit/c187096568f52366ec636513a97b4dbc12109b7d))
+
 ## [1.0.5](https://github.com/affixapi/logger/compare/v1.0.4...v1.0.5) (2024-04-09)
 
 
