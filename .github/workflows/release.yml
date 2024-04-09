@@ -28,7 +28,7 @@ jobs:
       - name: Set up NPM authentication
         run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.ACTIONS_TOKEN }}" >> ~/.npmrc
 
-      - uses: cycjimmy/semantic-release-action@v4.1.0
+      - uses: cycjimmy/semantic-release-action@v4.0.0
         with:
           semantic_version: 18
           extra_plugins: |
@@ -41,4 +41,4 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.ACTIONS_TOKEN }}
 
       - name: codecov
-        run: bash <(curl -s https://codecov.io/bash); # if [[ $(( $RANDOM % 2 )) -eq 0 ]]; then bash <(curl -s https://codecov.io/bash); fi
+        run: bash <(curl -s https://codecov.io/bash);
