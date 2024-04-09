@@ -1,3 +1,10 @@
+## [1.0.5](https://github.com/affixapi/logger/compare/v1.0.4...v1.0.5) (2024-04-09)
+
+
+### Bug Fixes
+
+* trigger rebuild ([6ce4be8](https://github.com/affixapi/logger/commit/6ce4be8e53a3fc80ee76700c62ec809f27538a99))
+
 ## [1.0.4](https://github.com/affixapi/logger/compare/v1.0.3...v1.0.4) (2024-04-08)
 
 
