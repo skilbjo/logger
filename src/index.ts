@@ -6,6 +6,7 @@ export const defaultFormatters = {
   bindings(): Record<string, unknown> {
     return {};
   },
+
   level(level: string): Record<string, unknown> {
     return { level };
   },
@@ -13,6 +14,7 @@ export const defaultFormatters = {
 
 export const defaultMixin = (): Record<string, unknown> => {
   const { env } = process;
+
   return {
     lambdaName: env.AWS_LAMBDA_FUNCTION_NAME,
     logGroup: env.AWS_LAMBDA_LOG_GROUP_NAME,

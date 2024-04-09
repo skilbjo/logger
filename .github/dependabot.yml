@@ -34,8 +34,8 @@ updates:
       interval: weekly
     assignees:
       - skilbjo
-    ignore:
-      - dependency-name: cycjimmy/semantic-release-action
+    # ignore:
+      # - dependency-name: cycjimmy/semantic-release-action
     open-pull-requests-limit: 5
     commit-message:
       prefix: fix

@@ -3,15 +3,16 @@
   "name": "@affixapi/logger",
   "version": "0.0.1",
   "repository": "github:affixapi/logger.git",
-  "main": "dist/index.js",
-  "typings": "dist/index.d.ts",
+  "main": "index.js",
+  "typings": "index.d.ts",
   "scripts": {
     "prepare": "if [ -z \"$GITHUB_ACTIONS\" ]; then npx husky install; fi",
     "eslint": "eslint .",
     "depcheck": "depcheck",
     "lint": "npm run eslint",
     "test": "jest --runInBand",
-    "build": "tspc -p tsconfig.build.json"
+    "build": "tspc -p tsconfig.build.json",
+    "postbuild": "jq 'del(.files)' package.json >dist/package.json"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/affixapi"
