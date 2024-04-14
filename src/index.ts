@@ -63,7 +63,52 @@ export const create = (
       message: string
     ): void => {
       pinoLogger.error(
-        { ...object, ...pino.stdSerializers.err(object.err) },
+        {
+          /*
+           * the error comes through logs like this, so hoping by commenting
+             this out that the readability improves
+{
+    "0": "E",
+    "1": "n",
+    "2": "d",
+    "3": "p",
+    "4": "o",
+    "5": "i",
+    "6": "n",
+    "7": "t",
+    "8": " ",
+    "9": "r",
+    "10": "e",
+    "11": "q",
+    "12": "u",
+    "13": "e",
+    "14": "s",
+    "15": "t",
+    "16": " ",
+    "17": "t",
+    "18": "i",
+    "19": "m",
+    "20": "e",
+    "21": "d",
+    "22": " ",
+    "23": "o",
+    "24": "u",
+    "25": "t",
+    "level": "error",
+    "time": "2024-04-14T06:39:20.326Z",
+    "lambdaName": "ApiService-HrPayrollApiServiceCanaryXhrCanary1632D-Mrm1t2qso8Ur",
+    "logGroup": "/aws/lambda/ApiService-HrPayrollApiServiceCanaryXhrCanary1632D-Mrm1t2qso8Ur",
+    "logStream": "2024/04/14/[$LATEST]1379d548446f45739f201e156b48dd6e",
+    "xRayTraceId": "Root=1-661b79f2-2e6d5166016439b661594434;Parent=dc483121f58aee89;Sampled=1;Lineage=5f238176:0",
+    "err": "Endpoint request timed out",
+    "statusText": "Gateway Timeout",
+    "msg": "error"
+}
+           */
+          // ...object,
+
+          ...pino.stdSerializers.err(object.err),
+        },
         message
       );
     },

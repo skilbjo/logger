@@ -1,13 +1,14 @@
 import pino from 'pino';
+
 import * as logger from '@src/index';
-import * as helper from '@test/helper';
+import { fakeStream } from '@test/utils';
 
 describe('LambdaLogger', () => {
   describe('when no config environment variables exist', () => {
     beforeEach(() => jest.resetModules());
 
     it('logs an info-level message', () => {
-      const { stream, getMessage } = helper.fakeStream();
+      const { stream, getMessage } = fakeStream();
       const log = logger.create(undefined, stream);
       log.info({}, 'test');
       const out = getMessage();
@@ -16,7 +17,7 @@ describe('LambdaLogger', () => {
     });
 
     it('logs an warn-level message', () => {
-      const { stream, getMessage } = helper.fakeStream();
+      const { stream, getMessage } = fakeStream();
       const log = logger.create(undefined, stream);
       log.warn({}, 'test');
       const out = getMessage();
@@ -25,7 +26,7 @@ describe('LambdaLogger', () => {
     });
 
     it('logs an debug-level message', () => {
-      const { stream, getMessage } = helper.fakeStream();
+      const { stream, getMessage } = fakeStream();
       const log = logger.create({ level: 'debug' }, stream);
       log.debug({}, 'test');
       const out = getMessage();
@@ -53,11 +54,14 @@ describe('LambdaLogger', () => {
     });
 
     afterEach(() => {
-      helper.nukeEnvironmentVariables();
+      delete process.env.AWS_LAMBDA_FUNCTION_NAME;
+      delete process.env.AWS_LAMBDA_LOG_STREAM_NAME;
+      delete process.env._X_AMZN_TRACE_ID;
+      delete process.env._X_AMZN_REQUEST_ID;
     });
 
     it('logs an info-level message', () => {
-      const { stream, getMessage } = helper.fakeStream();
+      const { stream, getMessage } = fakeStream();
       const log = logger.create(undefined, stream);
 
       log.info({}, 'test');
@@ -77,21 +81,27 @@ describe('LambdaLogger', () => {
     beforeEach(() => jest.resetModules());
 
     it('handles logging an error correctly', () => {
-      const { stream, getMessage } = helper.fakeStream();
+      const seedMsg = 'test';
+      const expectedMsg = seedMsg;
+      const expectedLevel = 'error';
+      const expectedType = 'Error';
+
+      const { stream, getMessage } = fakeStream();
       const log = logger.create(undefined, stream);
 
-      log.error({ err: new Error('FailBus') }, 'test');
+      log.error({ err: new Error('FailBus') }, seedMsg);
 
-      const out = getMessage();
+      const actual = getMessage();
+      const { msg, level, type, stack } = actual;
 
-      expect(out.msg).toEqual('test');
-      expect(out.level).toEqual('error');
-      expect(out.type).toEqual('Error');
-      expect(out.stack.startsWith('Error: FailBus\n')).toBeTruthy();
+      expect(msg).toEqual(expectedMsg);
+      expect(level).toEqual(expectedLevel);
+      expect(type).toEqual(expectedType);
+      expect(stack.startsWith('Error: FailBus\n')).toBeTruthy();
     });
 
     it('can also throw additional non-error info in the payload (in addition to the error)', () => {
-      const { stream, getMessage } = helper.fakeStream();
+      const { stream, getMessage } = fakeStream();
       const log = logger.create(undefined, stream);
 
       log.error({ err: new Error('FailBus'), someMsg: 'yo dawg' }, 'test');
@@ -105,7 +115,7 @@ describe('LambdaLogger', () => {
     });
 
     it('handles logging an object correctly', () => {
-      const { stream, getMessage } = helper.fakeStream();
+      const { stream, getMessage } = fakeStream();
       const log = logger.create(undefined, stream);
 
       log.info(
@@ -127,7 +137,7 @@ describe('LambdaLogger', () => {
     beforeEach(() => jest.resetModules());
 
     it('redacts the specified value', () => {
-      const { stream, getMessage } = helper.fakeStream();
+      const { stream, getMessage } = fakeStream();
       const log = logger.create({ redact: ['password'] }, stream);
 
       log.info({ password: 'hide me', user: 'someUser' }, 'test');
@@ -145,7 +155,7 @@ describe('LambdaLogger', () => {
     beforeEach(() => jest.resetModules());
 
     it('logs what your mixin returns', () => {
-      const { stream, getMessage } = helper.fakeStream();
+      const { stream, getMessage } = fakeStream();
       const mixin = (): Record<string, unknown> => {
         return {
           yoDawg: 'I love functions',
@@ -169,7 +179,7 @@ describe('LambdaLogger', () => {
     beforeEach(() => jest.resetModules());
 
     it('logs what your formatter defines', () => {
-      const { stream, getMessage } = helper.fakeStream();
+      const { stream, getMessage } = fakeStream();
       const log = logger.create(
         {
           formatters: {
@@ -200,12 +210,12 @@ describe('LambdaLogger', () => {
     beforeEach(() => jest.resetModules());
 
     it('should always give a fresh logger', () => {
-      const fake1 = helper.fakeStream();
+      const fake1 = fakeStream();
       const log1 = logger.create({}, fake1.stream);
 
       log1.info({ user: 'someUser' }, 'some message');
 
-      const fake2 = helper.fakeStream();
+      const fake2 = fakeStream();
       const log2 = logger.create({}, fake2.stream);
       log2.info({ user: 'otherUser' }, 'other message');
 

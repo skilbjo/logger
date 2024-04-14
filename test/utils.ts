@@ -25,7 +25,7 @@ export const fakeStream = (): {
 
 // prepareTestValue tears off the date (since the date changes all the time it
 // makes testing a pain.
-export const prepareTestValue = (message: string | undefined): BaseMessage => {
+const prepareTestValue = (message: string | undefined): BaseMessage => {
   if (!message)
     throw new Error('Message is undefined (no logs have been collected)');
 
@@ -36,12 +36,4 @@ export const prepareTestValue = (message: string | undefined): BaseMessage => {
   delete messageAsJson.time;
 
   return messageAsJson;
-};
-
-// nukeEnvironmentVariables explicitly deletes environment variables.
-export const nukeEnvironmentVariables = (): void => {
-  delete process.env.AWS_LAMBDA_FUNCTION_NAME;
-  delete process.env.AWS_LAMBDA_LOG_STREAM_NAME;
-  delete process.env._X_AMZN_TRACE_ID;
-  delete process.env._X_AMZN_REQUEST_ID;
 };
