@@ -1,3 +1,10 @@
+## [1.0.8](https://github.com/affixapi/logger/compare/v1.0.7...v1.0.8) (2024-04-14)
+
+
+### Bug Fixes
+
+* **log:** try to improve error readability ([521d7e2](https://github.com/affixapi/logger/commit/521d7e2f2d5e435e7424ef76558fe8a582c6def9))
+
 ## [1.0.7](https://github.com/affixapi/logger/compare/v1.0.6...v1.0.7) (2024-04-09)
 
 
