@@ -1,4 +1,6 @@
 ignores: [
+  '@src/*',
+  '@test/*',
   '@commitlint/cli',
   '@commitlint/config-angular',
   '@affixapi/config-rc',
@@ -6,6 +8,5 @@ ignores: [
   'husky',
   'ts-node',
   'eslint-import-resolver-typescript',
-  '@src/index',
-  '@test/helper'
+
 ]
