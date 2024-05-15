@@ -5,7 +5,7 @@ export type LogLevels = 'debug' | 'error' | 'fatal' | 'info' | 'trace' | 'warn';
 
 type LogFn = (object: Record<string, unknown>, message: string) => void;
 type ErrorLogFn = (
-  object: { err: Error } & Partial<{ [key: string]: unknown }>,
+  object: { err: Error } & Partial<Record<string, unknown>>,
   message: string
 ) => void;
 
@@ -19,29 +19,13 @@ export type Logger = {
   warn: LogFn;
 };
 
-export const defaultFormatters = {
-  bindings(): Record<string, unknown> {
-    return {};
-  },
-
-  level(level: string): Record<string, unknown> {
-    return { level };
-  },
-};
-
-export const defaultMixin = (): Record<string, unknown> => {
-  const { env } = process;
-
-  return {
-    lambdaName: env.AWS_LAMBDA_FUNCTION_NAME,
-    logGroup: env.AWS_LAMBDA_LOG_GROUP_NAME,
-    logStream: env.AWS_LAMBDA_LOG_STREAM_NAME,
-    requestId: env._X_AMZN_REQUEST_ID,
-    xRayTraceId: env._X_AMZN_TRACE_ID,
-  };
-};
-
-export const defaultTimestamp = pino.stdTimeFunctions.isoTime;
+export const mixin = (): Record<string, unknown> => ({
+  lambdaName: process.env.AWS_LAMBDA_FUNCTION_NAME,
+  logGroup: process.env.AWS_LAMBDA_LOG_GROUP_NAME,
+  logStream: process.env.AWS_LAMBDA_LOG_STREAM_NAME,
+  requestId: process.env._X_AMZN_REQUEST_ID,
+  xRayTraceId: process.env._X_AMZN_TRACE_ID,
+});
 
 export const create = (
   options?: LoggerOptions,
@@ -49,9 +33,23 @@ export const create = (
 ): Logger => {
   const pinoLogger = pino(
     {
-      formatters: defaultFormatters,
-      mixin: defaultMixin,
-      timestamp: defaultTimestamp,
+      formatters: {
+        bindings(): Record<string, unknown> {
+          return {};
+        },
+
+        level(level: string): Record<string, unknown> {
+          return { level };
+        },
+      },
+      mixin: () => ({
+        lambdaName: process.env.AWS_LAMBDA_FUNCTION_NAME,
+        logGroup: process.env.AWS_LAMBDA_LOG_GROUP_NAME,
+        logStream: process.env.AWS_LAMBDA_LOG_STREAM_NAME,
+        requestId: process.env._X_AMZN_REQUEST_ID,
+        xRayTraceId: process.env._X_AMZN_TRACE_ID,
+      }),
+      timestamp: pino.stdTimeFunctions.isoTime,
       ...options,
     },
     stream || process.stdout
@@ -59,10 +57,7 @@ export const create = (
 
   return {
     debug: pinoLogger.debug.bind(pinoLogger),
-    error: (
-      object: { err: Error } & Partial<{ [key: string]: unknown }>, // make sure the type & function signature matches ErrorLogFn type above
-      message: string
-    ): void =>
+    error: (object: { err: Error }, message: string): void =>
       pinoLogger.error({ ...pino.stdSerializers.err(object.err) }, message),
     info: pinoLogger.info.bind(pinoLogger),
     util: {

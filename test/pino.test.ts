@@ -208,7 +208,7 @@ describe('pino', () => {
       const mixin = (): Record<string, unknown> => {
         return {
           yoDawg: 'I love functions',
-          ...logger.defaultMixin(),
+          ...logger.mixin(),
         };
       };
 
