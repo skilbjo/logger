@@ -1,17 +1,40 @@
-import pino from 'pino';
+import type { Bindings } from 'pino';
 
+import createError from 'http-errors';
+import type { HttpError } from 'http-errors';
 import * as logger from '@src/index';
 import { fakeStream } from '@test/utils';
 
-describe('LambdaLogger', () => {
+export type HttpErrorResponseFn = () => createError.HttpError;
+
+export type HttpResponseableError = {
+  asHttpErrorResponse: HttpErrorResponseFn;
+};
+
+class InternalServerError extends Error implements HttpResponseableError {
+  public readonly asHttpErrorResponse: HttpErrorResponseFn;
+
+  constructor(message?: string) {
+    super(message ?? 'Internal Server Error');
+    Object.setPrototypeOf(this, new.target.prototype);
+
+    this.asHttpErrorResponse = (): HttpError =>
+      new createError.InternalServerError();
+  }
+}
+
+describe('pino', () => {
   describe('when no config environment variables exist', () => {
     beforeEach(() => jest.resetModules());
 
     it('logs an info-level message', () => {
       const { stream, getMessage } = fakeStream();
       const log = logger.create(undefined, stream);
+
       log.info({}, 'test');
+
       const out = getMessage();
+
       expect(out.msg).toEqual('test');
       expect(out.level).toEqual('info');
     });
@@ -19,8 +42,11 @@ describe('LambdaLogger', () => {
     it('logs an warn-level message', () => {
       const { stream, getMessage } = fakeStream();
       const log = logger.create(undefined, stream);
+
       log.warn({}, 'test');
+
       const out = getMessage();
+
       expect(out.msg).toEqual('test');
       expect(out.level).toEqual('warn');
     });
@@ -28,8 +54,11 @@ describe('LambdaLogger', () => {
     it('logs an debug-level message', () => {
       const { stream, getMessage } = fakeStream();
       const log = logger.create({ level: 'debug' }, stream);
+
       log.debug({}, 'test');
+
       const out = getMessage();
+
       expect(out.msg).toEqual('test');
       expect(out.level).toEqual('debug');
     });
@@ -79,6 +108,26 @@ describe('LambdaLogger', () => {
 
   describe('when the payload of the log message is complex', () => {
     beforeEach(() => jest.resetModules());
+
+    it('handles logging an error correctly', () => {
+      const seedMsg = 'test';
+      const expectedMsg = seedMsg;
+      const expectedLevel = 'error';
+      const expectedType = 'InternalServerError';
+
+      const { stream, getMessage } = fakeStream();
+      const log = logger.create(undefined, stream);
+
+      log.error({ err: new InternalServerError('FailBus') }, seedMsg);
+
+      const actual = getMessage();
+      const { msg, level, type, stack } = actual;
+
+      expect(msg).toEqual(expectedMsg);
+      expect(level).toEqual(expectedLevel);
+      expect(type).toEqual(expectedType);
+      expect(stack.startsWith('Error: FailBus\n')).toBeTruthy();
+    });
 
     it('handles logging an error correctly', () => {
       const seedMsg = 'test';
@@ -183,7 +232,7 @@ describe('LambdaLogger', () => {
       const log = logger.create(
         {
           formatters: {
-            bindings(bindings: pino.Bindings): Record<string, unknown> {
+            bindings(bindings: Bindings): Record<string, unknown> {
               return { hostname: bindings.hostname, pid: bindings.pid };
             },
             level: (level: string, number: number): Record<string, unknown> => {

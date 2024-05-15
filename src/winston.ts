@@ -1,33 +1,40 @@
-import * as winston from 'winston';
+import type { LeveledLogMethod } from 'winston';
+import winston from 'winston';
 
-export const createLogger = (level: LogLevel): winston.Logger => {
-  const logger = winston.createLogger({
+export { Logger } from 'winston';
+
+export type LogLevels = 'debug' | 'error' | 'fatal' | 'info' | 'trace' | 'warn';
+
+export const create = (
+  { level }: { level: LogLevels } = { level: 'debug' },
+  stream?: NodeJS.WriteStream // eslint-disable-line @typescript-eslint/no-unused-vars
+  // ) => {
+): {
+  debug: LeveledLogMethod;
+  error: LeveledLogMethod;
+  info: LeveledLogMethod;
+  warn: LeveledLogMethod;
+} => {
+  const winstonLogger = winston.createLogger({
     format: winston.format.combine(
       winston.format.metadata(),
       winston.format.timestamp(),
-      winston.format.json()
+      winston.format.json(),
+
+      winston.format.colorize(),
+      winston.format.prettyPrint(),
+      winston.format.splat(),
+      winston.format.simple()
     ),
+    level,
+    // transports: stream || [new winston.transports.Console({})],
+    transports: [new winston.transports.Console({})],
   });
 
-  logger.add(
-    new winston.transports.Console(
-      level === 'none'
-        ? { silent: true }
-        : {
-            level,
-          }
-    )
-  );
-
-  return logger;
+  return {
+    debug: winstonLogger.debug.bind(winstonLogger),
+    error: winstonLogger.error.bind(winstonLogger),
+    info: winstonLogger.info.bind(winstonLogger),
+    warn: winstonLogger.warn.bind(winstonLogger),
+  };
 };
-
-export enum LogLevel {
-  DEBUG = 'debug',
-  ERROR = 'error',
-  INFO = 'info',
-  NONE = 'none',
-  SILLY = 'silly',
-}
-
-export { Logger } from 'winston';

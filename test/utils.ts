@@ -14,12 +14,14 @@ export const fakeStream = (): {
 
       return prepareTestValue(lastMessage);
     },
-
     stream: {
+      log: () => {},
+      on: () => {},
+
       write: (val: string): void => {
         lastMessage = val;
       },
-    } as NodeJS.WriteStream,
+    } as unknown as NodeJS.WriteStream,
   };
 };
 

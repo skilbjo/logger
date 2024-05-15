@@ -32,6 +32,8 @@
     "winston": "3.13.0"
   },
   "devDependencies": {
+    "http-errors": "2.0.0",
+    "@types/http-errors": "2.0.4",
     "@affixapi/config-rc": "1.0.7",
     "@affixapi/eslint-config-rc": "npm:@affixapi/config-rc@1.0.7",
     "@commitlint/cli": "17.0.0",

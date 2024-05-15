@@ -1,6 +1,8 @@
 ignores: [
   '@src/*',
   '@test/*',
+  '@test/utils',
+
   '@commitlint/cli',
   '@commitlint/config-angular',
   '@affixapi/config-rc',
