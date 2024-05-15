@@ -1,3 +1,13 @@
+## [1.0.9](https://github.com/affixapi/logger/compare/v1.0.8...v1.0.9) (2024-05-15)
+
+
+### Bug Fixes
+
+* **deps-dev:** bump typescript from 5.4.4 to 5.4.5 ([#28](https://github.com/affixapi/logger/issues/28)) ([dd15e48](https://github.com/affixapi/logger/commit/dd15e48bd7f2d77d4e45d485a9eca5dda85a1da6))
+* **deps:** bump dependabot/fetch-metadata from 2.0.0 to 2.1.0 ([#30](https://github.com/affixapi/logger/issues/30)) ([c682f31](https://github.com/affixapi/logger/commit/c682f31d9f95efdb19bbc5c54cd08c4663e12af2))
+* **deps:** bump pino from 8.20.0 to 9.0.0 ([#32](https://github.com/affixapi/logger/issues/32)) ([70c8bea](https://github.com/affixapi/logger/commit/70c8bea65a5183c7a2fa279dba895b98df3f55e9))
+* refactors ([82b6c24](https://github.com/affixapi/logger/commit/82b6c2416719906db1bab67c55b071bf355a3107))
+
 ## [1.0.8](https://github.com/affixapi/logger/compare/v1.0.7...v1.0.8) (2024-04-14)
 
 
