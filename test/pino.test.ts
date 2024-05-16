@@ -205,12 +205,10 @@ describe('pino', () => {
 
     it('logs what your mixin returns', () => {
       const { stream, getMessage } = fakeStream();
-      const mixin = (): Record<string, unknown> => {
-        return {
-          yoDawg: 'I love functions',
-          ...logger.mixin(),
-        };
-      };
+      const mixin = (): Record<string, unknown> => ({
+        yoDawg: 'I love functions',
+        ...logger.mixin(),
+      });
 
       const log = logger.create({ mixin }, stream);
 
@@ -232,12 +230,14 @@ describe('pino', () => {
       const log = logger.create(
         {
           formatters: {
-            bindings(bindings: Bindings): Record<string, unknown> {
-              return { hostname: bindings.hostname, pid: bindings.pid };
-            },
-            level: (level: string, number: number): Record<string, unknown> => {
-              return { level: number };
-            },
+            bindings: (bindings: Bindings): Record<string, unknown> => ({
+              hostname: bindings.hostname,
+              pid: bindings.pid,
+            }),
+            level: (
+              level: string,
+              number: number
+            ): Record<string, unknown> => ({ level: number }),
           },
         },
         stream
@@ -276,6 +276,7 @@ describe('pino', () => {
   describe('serializer', () => {
     it('should serialize correctly', () => {
       const log = logger.create();
+
       expect(log.util.serialize(new Error('fail')).message).toBe('fail');
     });
   });

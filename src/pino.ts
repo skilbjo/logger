@@ -34,13 +34,9 @@ export const create = (
   const pinoLogger = pino(
     {
       formatters: {
-        bindings(): Record<string, unknown> {
-          return {};
-        },
+        bindings: (): Record<string, unknown> => ({}),
 
-        level(level: string): Record<string, unknown> {
-          return { level };
-        },
+        level: (level: string): Record<string, unknown> => ({ level }),
       },
       mixin: () => ({
         lambdaName: process.env.AWS_LAMBDA_FUNCTION_NAME,
