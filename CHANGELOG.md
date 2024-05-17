@@ -1,3 +1,10 @@
+## [1.0.11](https://github.com/affixapi/logger/compare/v1.0.10...v1.0.11) (2024-05-17)
+
+
+### Bug Fixes
+
+* build ([ec56996](https://github.com/affixapi/logger/commit/ec56996a8a0f61964d00ff9b43c64da5596768c1))
+
 ## [1.0.10](https://github.com/affixapi/logger/compare/v1.0.9...v1.0.10) (2024-05-17)
 
 
