@@ -4,6 +4,15 @@
     "src/**/*.ts"
   ],
   "compilerOptions": {
-    "outDir": "dist"
+    "outDir": "dist",
+    "plugins": [
+      {
+        "transform": "typescript-transform-paths"
+      },
+      {
+        "transform": "typescript-transform-paths",
+        "afterDeclarations": true
+      }
+    ]
   }
 }
