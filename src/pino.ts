@@ -54,7 +54,7 @@ export const create = (
   return {
     debug: pinoLogger.debug.bind(pinoLogger),
     error: (object: { err: Error }, message: string): void =>
-      pinoLogger.error({ ...pino.stdSerializers.err(object.err) }, message),
+      pinoLogger.error(pino.stdSerializers.err(object.err), message),
     info: pinoLogger.info.bind(pinoLogger),
     util: {
       serialize: (error: Error): SerializedError =>
