@@ -45,7 +45,7 @@
     "ts-jest": "29.1.5",
     "ts-node": "10.9.2",
     "ts-patch": "3.2.1",
-    "typescript": "5.5.2",
+    "typescript": "5.5.3",
     "typescript-transform-paths": "3.4.7"
   },
   "commitlint": {
