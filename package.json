@@ -29,7 +29,7 @@
   ],
   "dependencies": {
     "pino": "9.3.2",
-    "winston": "3.13.1"
+    "winston": "3.14.1"
   },
   "devDependencies": {
     "http-errors": "2.0.0",
