@@ -34,7 +34,7 @@
   "devDependencies": {
     "http-errors": "2.0.0",
     "@types/http-errors": "2.0.4",
-    "@affixapi/config-rc": "1.0.7",
+    "@affixapi/config-rc": "1.0.8",
     "@affixapi/eslint-config-rc": "npm:@affixapi/config-rc@1.0.7",
     "@commitlint/cli": "17.0.0",
     "@commitlint/config-angular": "17.0.0",
