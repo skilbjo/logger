@@ -1,3 +1,35 @@
+## [1.0.12](https://github.com/affixapi/logger/compare/v1.0.11...v1.0.12) (2024-09-16)
+
+
+### Bug Fixes
+
+* **deps-dev:** bump @affixapi/config-rc from 1.0.7 to 1.0.8 ([#66](https://github.com/affixapi/logger/issues/66)) ([0aebdc3](https://github.com/affixapi/logger/commit/0aebdc37f0816cb92e2875f65d73d028b5be003d))
+* **deps-dev:** bump braces from 3.0.2 to 3.0.3 ([#43](https://github.com/affixapi/logger/issues/43)) ([0923100](https://github.com/affixapi/logger/commit/092310026301a34bed14bfe3ab40267004eb9c1a))
+* **deps-dev:** bump micromatch from 4.0.5 to 4.0.8 ([#65](https://github.com/affixapi/logger/issues/65)) ([800de65](https://github.com/affixapi/logger/commit/800de65f9b896522d159ec2de37491acdd47d1b8))
+* **deps-dev:** bump ts-jest from 29.1.2 to 29.1.3 ([#36](https://github.com/affixapi/logger/issues/36)) ([0d0043c](https://github.com/affixapi/logger/commit/0d0043c41c1733fd6a00cf904b4ed0a003d33d5a))
+* **deps-dev:** bump ts-jest from 29.1.3 to 29.1.4 ([#38](https://github.com/affixapi/logger/issues/38)) ([7673e6b](https://github.com/affixapi/logger/commit/7673e6bbb5a55784aa7ce7d98c1f1add1a94ef59))
+* **deps-dev:** bump ts-jest from 29.1.4 to 29.1.5 ([#41](https://github.com/affixapi/logger/issues/41)) ([5caa2d7](https://github.com/affixapi/logger/commit/5caa2d70eb6c9b18f62e85ac24f65adfc13d19e4))
+* **deps-dev:** bump ts-jest from 29.1.5 to 29.2.2 ([#50](https://github.com/affixapi/logger/issues/50)) ([31dc64b](https://github.com/affixapi/logger/commit/31dc64b775691bd6f7fa211eb2c59c9122dfedda))
+* **deps-dev:** bump ts-jest from 29.2.2 to 29.2.3 ([#52](https://github.com/affixapi/logger/issues/52)) ([86e3eed](https://github.com/affixapi/logger/commit/86e3eed5c27751dbab26ceb6881c11f7ec095315))
+* **deps-dev:** bump ts-jest from 29.2.3 to 29.2.4 ([#57](https://github.com/affixapi/logger/issues/57)) ([1a1d630](https://github.com/affixapi/logger/commit/1a1d6301564c4a07ff639c54071533850207de1e))
+* **deps-dev:** bump ts-jest from 29.2.4 to 29.2.5 ([#64](https://github.com/affixapi/logger/issues/64)) ([45d08c0](https://github.com/affixapi/logger/commit/45d08c006f2ae6b0ff8d754734c2b67c8bde7c7e))
+* **deps-dev:** bump ts-patch from 3.1.2 to 3.2.0 ([#39](https://github.com/affixapi/logger/issues/39)) ([cb41759](https://github.com/affixapi/logger/commit/cb41759f84ae77ac9cce4f6946e227482d05a150))
+* **deps-dev:** bump ts-patch from 3.2.0 to 3.2.1 ([#45](https://github.com/affixapi/logger/issues/45)) ([5cba57a](https://github.com/affixapi/logger/commit/5cba57adebe77e32b9e5e9f50b1c6cf2061a5e5e))
+* **deps-dev:** bump typescript from 5.4.5 to 5.5.2 ([#44](https://github.com/affixapi/logger/issues/44)) ([d883869](https://github.com/affixapi/logger/commit/d883869b4807033211a1e047e193d2b1b952d6cf))
+* **deps-dev:** bump typescript from 5.5.2 to 5.5.3 ([#48](https://github.com/affixapi/logger/issues/48)) ([14a778e](https://github.com/affixapi/logger/commit/14a778e1431064a34ca35f92666d5c7952edb614))
+* **deps-dev:** bump typescript from 5.5.3 to 5.5.4 ([#54](https://github.com/affixapi/logger/issues/54)) ([464c9b0](https://github.com/affixapi/logger/commit/464c9b0f00f987277db29e93cb890b0e3a86c70c))
+* **deps-dev:** bump typescript-transform-paths from 3.4.10 to 3.5.0 ([#62](https://github.com/affixapi/logger/issues/62)) ([daa31dd](https://github.com/affixapi/logger/commit/daa31ddbaefd6ea18df8cef540ca8e23fe46846e))
+* **deps-dev:** bump typescript-transform-paths from 3.4.7 to 3.4.10 ([#58](https://github.com/affixapi/logger/issues/58)) ([149d4fd](https://github.com/affixapi/logger/commit/149d4fdf15746376a8ed86f7b6bb4c0d2b368e8a))
+* **deps:** bump dependabot/fetch-metadata from 2.1.0 to 2.2.0 ([#47](https://github.com/affixapi/logger/issues/47)) ([bf88dfb](https://github.com/affixapi/logger/commit/bf88dfb92b5264a18edb81a85f7773baa0cdc7e0))
+* **deps:** bump pino from 9.0.0 to 9.1.0 ([#35](https://github.com/affixapi/logger/issues/35)) ([a68ce1c](https://github.com/affixapi/logger/commit/a68ce1c4d70c67a529e3cddceabf5876274a13cf))
+* **deps:** bump pino from 9.1.0 to 9.2.0 ([#42](https://github.com/affixapi/logger/issues/42)) ([3ea61ab](https://github.com/affixapi/logger/commit/3ea61ab88932e88090af4d5f3cbafdf428b22834))
+* **deps:** bump pino from 9.2.0 to 9.3.1 ([#53](https://github.com/affixapi/logger/issues/53)) ([429d7db](https://github.com/affixapi/logger/commit/429d7db60bffe5bd165f5320089c65497733dd83))
+* **deps:** bump pino from 9.3.1 to 9.3.2 ([#55](https://github.com/affixapi/logger/issues/55)) ([030e503](https://github.com/affixapi/logger/commit/030e50379428ff378f583a3f34091404aeda212e))
+* **deps:** bump pino from 9.3.2 to 9.4.0 ([#68](https://github.com/affixapi/logger/issues/68)) ([26a2313](https://github.com/affixapi/logger/commit/26a231350d96f29cccade1aa03b7f6c2485d616f))
+* **deps:** bump winston from 3.13.0 to 3.13.1 ([#49](https://github.com/affixapi/logger/issues/49)) ([07c19b1](https://github.com/affixapi/logger/commit/07c19b151840bc131c0e61f8954b7ac4a88d2446))
+* **deps:** bump winston from 3.13.1 to 3.14.1 ([#59](https://github.com/affixapi/logger/issues/59)) ([8e2344e](https://github.com/affixapi/logger/commit/8e2344e89c4797251e2056a27ae3fea108e3ad3c))
+* **deps:** bump winston from 3.14.1 to 3.14.2 ([#61](https://github.com/affixapi/logger/issues/61)) ([fc4e075](https://github.com/affixapi/logger/commit/fc4e075e14c531c7b02b236ff3bb335367e5dfe1))
+
 ## [1.0.11](https://github.com/affixapi/logger/compare/v1.0.10...v1.0.11) (2024-05-17)
 
 
