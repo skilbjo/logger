@@ -38,7 +38,7 @@
     "@affixapi/eslint-config-rc": "npm:@affixapi/config-rc@1.0.8",
     "@types/http-errors": "2.0.4",
     "depcheck": "1.4.7",
-    "eslint": "8.57.0",
+    "eslint": "9.10.0",
     "http-errors": "2.0.0",
     "husky": "8.0.1",
     "jest": "29.7.0",
