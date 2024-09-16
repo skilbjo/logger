@@ -6,6 +6,7 @@ ignores: [
   '@commitlint/cli',
   '@commitlint/config-angular',
   '@affixapi/config-rc',
+  '@skilbjo/config-rc',
   'depcheck',
   'husky',
   'ts-node',
