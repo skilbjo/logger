@@ -1,5 +1,5 @@
 module.exports = {
-  extends: ['@affixapi/eslint-config-rc'],
+  extends: ['@skilbjo/eslint-config-rc'],
   parserOptions: {
     project: './tsconfig.json',
   },
