@@ -1,3 +1,11 @@
+## [1.0.13](https://github.com/affixapi/logger/compare/v1.0.12...v1.0.13) (2024-09-24)
+
+
+### Bug Fixes
+
+* **deps-dev:** bump typescript-transform-paths from 3.5.0 to 3.5.1 ([#70](https://github.com/affixapi/logger/issues/70)) ([d28683b](https://github.com/affixapi/logger/commit/d28683b897546b67bd8063428fa3407b8a8738e6))
+* use @skilbjo/config-rc ([7f22aff](https://github.com/affixapi/logger/commit/7f22affa93b16eab3003a0dab3c40e1912072e8a))
+
 ## [1.0.12](https://github.com/affixapi/logger/compare/v1.0.11...v1.0.12) (2024-09-16)
 
 
