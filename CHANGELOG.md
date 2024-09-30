@@ -1,3 +1,10 @@
+## [1.0.15](https://github.com/skilbjo/logger/compare/v1.0.14...v1.0.15) (2024-09-30)
+
+
+### Bug Fixes
+
+* export ([606019c](https://github.com/skilbjo/logger/commit/606019c3f3d57db88c6a30862728bde3d90251fa))
+
 ## [1.0.14](https://github.com/skilbjo/logger/compare/v1.0.13...v1.0.14) (2024-09-30)
 
 
