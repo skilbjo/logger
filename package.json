@@ -1,8 +1,8 @@
 {
   "$schema": "https://json.schemastore.org/package",
-  "name": "@affixapi/logger",
+  "name": "@skilbjo/logger",
   "version": "0.0.1",
-  "repository": "github:affixapi/logger.git",
+  "repository": "github:skilbjo/logger.git",
   "main": "index.js",
   "typings": "index.d.ts",
   "scripts": {
@@ -15,7 +15,7 @@
     "postbuild": "jq 'del(.files)' package.json >dist/package.json"
   },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/affixapi"
+    "registry": "https://npm.pkg.github.com/skilbjo"
   },
   "files": [
     "dist"
