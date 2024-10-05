@@ -1,3 +1,10 @@
+## [1.0.19](https://github.com/skilbjo/logger/compare/v1.0.18...v1.0.19) (2024-10-05)
+
+
+### Bug Fixes
+
+* dist ([1eebf01](https://github.com/skilbjo/logger/commit/1eebf0195bb7db489a1b06234db3cdc30349f1a8))
+
 ## [1.0.18](https://github.com/skilbjo/logger/compare/v1.0.17...v1.0.18) (2024-10-05)
 
 
