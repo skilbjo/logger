@@ -1,3 +1,12 @@
+## [1.0.21](https://github.com/skilbjo/logger/compare/v1.0.20...v1.0.21) (2024-10-05)
+
+
+### Bug Fixes
+
+* add postbuild step ([e24b00d](https://github.com/skilbjo/logger/commit/e24b00d4dec46e6a96f6e330143512afd851377f))
+* change cmd names for ci workflow order ([1caace0](https://github.com/skilbjo/logger/commit/1caace0f25fde85d1505adbe2b0e3e23bb1b5189))
+* modify contents of dist/package for npm package ([a123117](https://github.com/skilbjo/logger/commit/a1231172e9d5e7f8cc404a65fe3ef5a1e5c6cef1))
+
 ## [1.0.20](https://github.com/skilbjo/logger/compare/v1.0.19...v1.0.20) (2024-10-05)
 
 
