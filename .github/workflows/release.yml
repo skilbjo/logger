@@ -55,7 +55,7 @@ jobs:
       - name: prepare npm
         run: |
           npm --no-git-tag-version version ${{ steps.semantic.outputs.new_release_version }}
-          jq 'del(.repository, .publishConfig) | . + { publishConfig: { registry: "https://registry.npmjs.org/" } }' package.json >package2.json && mv package2.json package.json
+          jq 'del(.repository, .publishConfig) | . + { publishConfig: { registry: "https://registry.npmjs.org/" } }' package.json >package2.json && mv package2.json dist/package.json
 
       - name: Publish to NPM
         if: steps.semantic.outputs.new_release_published == 'true'
