@@ -1,3 +1,10 @@
+## [1.0.18](https://github.com/skilbjo/logger/compare/v1.0.17...v1.0.18) (2024-10-05)
+
+
+### Bug Fixes
+
+* **ci:** tag version ([2086cae](https://github.com/skilbjo/logger/commit/2086cae581403b73ca911bdee6b4f068c161659f))
+
 ## [1.0.17](https://github.com/skilbjo/logger/compare/v1.0.16...v1.0.17) (2024-10-05)
 
 
