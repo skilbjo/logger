@@ -15,6 +15,11 @@ jobs:
       issues: write
     runs-on: ubuntu-latest
     timeout-minutes: 10
+
+    outputs:
+      new_release_version:   ${{ steps.semantic.outputs.new_release_version }}
+      new_release_published: ${{ steps.semantic.outputs.new_release_published }}
+
     steps:
       - uses: actions/checkout@v4
         with:
@@ -41,6 +46,19 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.ACTIONS_TOKEN }}
 
       - name: codecov
+        if: steps.semantic.outputs.new_release_published == 'true'
         run: bash <(curl -s https://codecov.io/bash);
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+
+      - name: prepare npm
+        run: |
+          # npm --no-git-tag-version version ${{ steps.semantic.outputs.new_release_version }}
+          jq 'del(.repository, .publishConfig) | . + { publishConfig: { registry: "https://registry.npmjs.org/" } }' package.json >package2.json && mv package2.json package.json
+
+      - name: Publish to NPM
+        if: steps.semantic.outputs.new_release_published == 'true'
+        uses: JS-DevTools/npm-publish@v3
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
+          access: public
