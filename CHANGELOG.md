@@ -1,3 +1,10 @@
+## [1.0.20](https://github.com/skilbjo/logger/compare/v1.0.19...v1.0.20) (2024-10-05)
+
+
+### Bug Fixes
+
+* move to dist ([efc6bc7](https://github.com/skilbjo/logger/commit/efc6bc70b55c3a6a99fc7455dde9fbfc4f7bc197))
+
 ## [1.0.19](https://github.com/skilbjo/logger/compare/v1.0.18...v1.0.19) (2024-10-05)
 
 
