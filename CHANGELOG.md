@@ -1,3 +1,10 @@
+## [1.0.16](https://github.com/skilbjo/logger/compare/v1.0.15...v1.0.16) (2024-10-05)
+
+
+### Bug Fixes
+
+* **ci:** publish to npm ([f6ab0b4](https://github.com/skilbjo/logger/commit/f6ab0b479d621bc3021dbd8e18acb5c77a0666e2))
+
 ## [1.0.15](https://github.com/skilbjo/logger/compare/v1.0.14...v1.0.15) (2024-09-30)
 
 
