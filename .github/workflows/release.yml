@@ -34,6 +34,7 @@ jobs:
         run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.ACTIONS_TOKEN }}" >> ~/.npmrc
 
       - uses: cycjimmy/semantic-release-action@v4.1.1
+        id: semantic # need an `id` for output variables
         with:
           semantic_version: 18
           extra_plugins: |
