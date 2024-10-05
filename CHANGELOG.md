@@ -1,3 +1,10 @@
+## [1.0.17](https://github.com/skilbjo/logger/compare/v1.0.16...v1.0.17) (2024-10-05)
+
+
+### Bug Fixes
+
+* **ci:** add id ([aba9d2b](https://github.com/skilbjo/logger/commit/aba9d2b1bab1fd548976366b300f195f88148424))
+
 ## [1.0.16](https://github.com/skilbjo/logger/compare/v1.0.15...v1.0.16) (2024-10-05)
 
 
