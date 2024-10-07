@@ -30,13 +30,13 @@
   ],
   "dependencies": {
     "pino": "9.4.0",
-    "winston": "3.14.2"
+    "winston": "3.15.0"
   },
   "devDependencies": {
     "@commitlint/cli": "17.0.0",
     "@commitlint/config-angular": "17.0.0",
-    "@skilbjo/config-rc": "1.0.9",
-    "@skilbjo/eslint-config-rc": "npm:@skilbjo/config-rc@1.0.9",
+    "@skilbjo/config-rc": "1.0.12",
+    "@skilbjo/eslint-config-rc": "npm:@skilbjo/config-rc@1.0.12",
     "@types/http-errors": "2.0.4",
     "depcheck": "1.4.7",
     "eslint": "8.57.0",
