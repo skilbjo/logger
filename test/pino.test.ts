@@ -28,7 +28,7 @@ describe('pino', () => {
     beforeEach(() => jest.resetModules());
 
     it('logs an info-level message', () => {
-      const { stream, getMessage } = fakeStream();
+      const { getMessage, stream } = fakeStream();
       const log = logger.create(undefined, stream);
 
       log.info({}, 'test');
@@ -40,7 +40,7 @@ describe('pino', () => {
     });
 
     it('logs an warn-level message', () => {
-      const { stream, getMessage } = fakeStream();
+      const { getMessage, stream } = fakeStream();
       const log = logger.create(undefined, stream);
 
       log.warn({}, 'test');
@@ -52,7 +52,7 @@ describe('pino', () => {
     });
 
     it('logs an debug-level message', () => {
-      const { stream, getMessage } = fakeStream();
+      const { getMessage, stream } = fakeStream();
       const log = logger.create({ level: 'debug' }, stream);
 
       log.debug({}, 'test');
@@ -90,7 +90,7 @@ describe('pino', () => {
     });
 
     it('logs an info-level message', () => {
-      const { stream, getMessage } = fakeStream();
+      const { getMessage, stream } = fakeStream();
       const log = logger.create(undefined, stream);
 
       log.info({}, 'test');
@@ -115,13 +115,13 @@ describe('pino', () => {
       const expectedLevel = 'error';
       const expectedType = 'InternalServerError';
 
-      const { stream, getMessage } = fakeStream();
+      const { getMessage, stream } = fakeStream();
       const log = logger.create(undefined, stream);
 
       log.error({ err: new InternalServerError('FailBus') }, seedMsg);
 
       const actual = getMessage();
-      const { msg, level, type, stack } = actual;
+      const { level, msg, stack, type } = actual;
 
       expect(msg).toEqual(expectedMsg);
       expect(level).toEqual(expectedLevel);
@@ -135,13 +135,13 @@ describe('pino', () => {
       const expectedLevel = 'error';
       const expectedType = 'Error';
 
-      const { stream, getMessage } = fakeStream();
+      const { getMessage, stream } = fakeStream();
       const log = logger.create(undefined, stream);
 
       log.error({ err: new Error('FailBus') }, seedMsg);
 
       const actual = getMessage();
-      const { msg, level, type, stack } = actual;
+      const { level, msg, stack, type } = actual;
 
       expect(msg).toEqual(expectedMsg);
       expect(level).toEqual(expectedLevel);
@@ -150,7 +150,7 @@ describe('pino', () => {
     });
 
     it('can also throw additional non-error info in the payload (in addition to the error)', () => {
-      const { stream, getMessage } = fakeStream();
+      const { getMessage, stream } = fakeStream();
       const log = logger.create(undefined, stream);
 
       log.error({ err: new Error('FailBus'), someMsg: 'yo dawg' }, 'test');
@@ -164,11 +164,11 @@ describe('pino', () => {
     });
 
     it('handles logging an object correctly', () => {
-      const { stream, getMessage } = fakeStream();
+      const { getMessage, stream } = fakeStream();
       const log = logger.create(undefined, stream);
 
       log.info(
-        { aNumber: 3, anArray: [1, 2, 3, { one: 1, two: 2 }], soComplex: true },
+        { anArray: [1, 2, 3, { one: 1, two: 2 }], aNumber: 3, soComplex: true },
         'test'
       );
 
@@ -186,7 +186,7 @@ describe('pino', () => {
     beforeEach(() => jest.resetModules());
 
     it('redacts the specified value', () => {
-      const { stream, getMessage } = fakeStream();
+      const { getMessage, stream } = fakeStream();
       const log = logger.create({ redact: ['password'] }, stream);
 
       log.info({ password: 'hide me', user: 'someUser' }, 'test');
@@ -204,7 +204,7 @@ describe('pino', () => {
     beforeEach(() => jest.resetModules());
 
     it('logs what your mixin returns', () => {
-      const { stream, getMessage } = fakeStream();
+      const { getMessage, stream } = fakeStream();
       const mixin = (): Record<string, unknown> => ({
         yoDawg: 'I love functions',
         ...logger.mixin(),
@@ -226,7 +226,7 @@ describe('pino', () => {
     beforeEach(() => jest.resetModules());
 
     it('logs what your formatter defines', () => {
-      const { stream, getMessage } = fakeStream();
+      const { getMessage, stream } = fakeStream();
       const log = logger.create(
         {
           formatters: {

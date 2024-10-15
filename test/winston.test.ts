@@ -15,7 +15,7 @@ describe.skip('winston', () => {
     });
 
     it('logs an info-level message', () => {
-      const { stream, getMessage } = fakeStream();
+      const { getMessage, stream } = fakeStream();
       const log = logger.create({ level }, stream);
       log.info('test', {});
       const out = getMessage();
@@ -24,7 +24,7 @@ describe.skip('winston', () => {
     });
 
     it('logs an warn-level message', () => {
-      const { stream, getMessage } = fakeStream();
+      const { getMessage, stream } = fakeStream();
       const log = logger.create({ level }, stream);
       log.warn('test', {});
       const out = getMessage();
@@ -33,7 +33,7 @@ describe.skip('winston', () => {
     });
 
     it('logs an debug-level message', () => {
-      const { stream, getMessage } = fakeStream();
+      const { getMessage, stream } = fakeStream();
       const log = logger.create({ level: 'debug' }, stream);
       log.debug('test', {});
       const out = getMessage();
