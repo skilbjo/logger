@@ -1,3 +1,10 @@
+## [1.0.22](https://github.com/skilbjo/logger/compare/v1.0.21...v1.0.22) (2024-10-15)
+
+
+### Bug Fixes
+
+* **deps-dev:** bump @skilbjo/config-rc from 1.0.12 to 1.0.13 ([#80](https://github.com/skilbjo/logger/issues/80)) ([2987a62](https://github.com/skilbjo/logger/commit/2987a6237e21aa89b7c26ac86ee22558ee5c6203))
+
 ## [1.0.21](https://github.com/skilbjo/logger/compare/v1.0.20...v1.0.21) (2024-10-05)
 
 
