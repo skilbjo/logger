@@ -1,3 +1,12 @@
+## [1.0.23](https://github.com/skilbjo/logger/compare/v1.0.22...v1.0.23) (2024-10-27)
+
+
+### Bug Fixes
+
+* **deps-dev:** bump @skilbjo/config-rc from 1.0.15 to 1.0.18 ([#83](https://github.com/skilbjo/logger/issues/83)) ([18a0b43](https://github.com/skilbjo/logger/commit/18a0b4341bb5f0e186bf2a3cb1990bfda4ab7d6f))
+* **deps:** bump pino from 9.4.0 to 9.5.0 ([#82](https://github.com/skilbjo/logger/issues/82)) ([44d8a28](https://github.com/skilbjo/logger/commit/44d8a2851ef5517f4a4d9f0a57946ef720fa252c))
+* **deps:** remove winston as mandatory dep ([baaf5c0](https://github.com/skilbjo/logger/commit/baaf5c05e1d670d4f72bfd2134bec4fe7b1c3d52))
+
 ## [1.0.22](https://github.com/skilbjo/logger/compare/v1.0.21...v1.0.22) (2024-10-15)
 
 
