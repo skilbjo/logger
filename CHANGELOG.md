@@ -1,3 +1,10 @@
+## [1.0.24](https://github.com/skilbjo/logger/compare/v1.0.23...v1.0.24) (2024-11-05)
+
+
+### Bug Fixes
+
+* **deps-dev:** bump winston from 3.15.0 to 3.16.0 ([#84](https://github.com/skilbjo/logger/issues/84)) ([2ef8584](https://github.com/skilbjo/logger/commit/2ef85848f26e435ad7755eb4273670ff0ef893dd))
+
 ## [1.0.23](https://github.com/skilbjo/logger/compare/v1.0.22...v1.0.23) (2024-10-27)
 
 
