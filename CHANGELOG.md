@@ -1,3 +1,11 @@
+## [1.0.25](https://github.com/skilbjo/logger/compare/v1.0.24...v1.0.25) (2024-11-25)
+
+
+### Bug Fixes
+
+* **deps-dev:** bump @skilbjo/config-rc from 1.0.18 to 1.0.20 ([#89](https://github.com/skilbjo/logger/issues/89)) ([b646408](https://github.com/skilbjo/logger/commit/b6464081248a7ebc7282d3780c48aba6b3415e47))
+* **deps-dev:** bump winston from 3.16.0 to 3.17.0 ([#86](https://github.com/skilbjo/logger/issues/86)) ([954ef86](https://github.com/skilbjo/logger/commit/954ef86892b75c34e49781f6e81610e1c3c7f745))
+
 ## [1.0.24](https://github.com/skilbjo/logger/compare/v1.0.23...v1.0.24) (2024-11-05)
 
 
