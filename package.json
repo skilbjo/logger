@@ -2,9 +2,18 @@
   "$schema": "https://json.schemastore.org/package",
   "name": "@skilbjo/logger",
   "version": "0.0.1",
-  "repository": "github:skilbjo/logger.git",
   "main": "index.js",
   "typings": "index.d.ts",
+  "private": false,
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com",
+    "access": "public",
+    "provenance": true
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/skilbjo/logger.git"
+  },
   "scripts": {
     "prepare": "if [ -z \"$GITHUB_ACTIONS\" ]; then npx husky install; fi",
     "eslint": "eslint .",
@@ -13,10 +22,7 @@
     "test": "jest --runInBand",
     "build": "tspc -p tsconfig.build.json",
     "postbuild": "jq 'del(.files)' package.json >dist/package.json",
-    "prepare-npm": "jq 'del(.repository, .publishConfig, .files) | . + { publishConfig: { registry: \"https://registry.npmjs.org/\" } }' package.json >package2.json && mv package2.json dist/package.json"
-  },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/skilbjo"
+    "prepare-npm": "jq 'del(.publishConfig, .files) | . + { publishConfig: { registry: \"https://registry.npmjs.org/\", access: \"public\", provenance: true } }' package.json >package2.json && mv package2.json dist/package.json"
   },
   "files": [
     "dist"
@@ -34,8 +40,8 @@
   "devDependencies": {
     "@commitlint/cli": "17.0.0",
     "@commitlint/config-angular": "17.0.0",
-    "@skilbjo/config-rc": "1.0.20",
-    "@skilbjo/eslint-config-rc": "npm:@skilbjo/config-rc@1.0.20",
+    "@skilbjo/config-rc": "1.0.23",
+    "@skilbjo/eslint-config-rc": "npm:@skilbjo/config-rc@1.0.23",
     "@types/http-errors": "2.0.4",
     "depcheck": "1.4.7",
     "eslint": "8.57.0",
