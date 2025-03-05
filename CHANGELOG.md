@@ -1,3 +1,16 @@
+## [1.0.26](https://github.com/skilbjo/logger/compare/v1.0.25...v1.0.26) (2025-03-05)
+
+
+### Bug Fixes
+
+* add provenance ([e6d8047](https://github.com/skilbjo/logger/commit/e6d80476bcc662352ccc52c24f265db7d6537e67))
+* **deps-dev:** bump ts-jest from 29.2.5 to 29.2.6 ([#95](https://github.com/skilbjo/logger/issues/95)) ([be23ecc](https://github.com/skilbjo/logger/commit/be23ecca63d62c1e10301e214bf14433e56bb858))
+* **deps-dev:** bump typescript from 5.7.2 to 5.7.3 ([#93](https://github.com/skilbjo/logger/issues/93)) ([13bb9a1](https://github.com/skilbjo/logger/commit/13bb9a1faeb670e06609f7d2ce7fe20830b4305b))
+* **deps-dev:** bump typescript from 5.7.3 to 5.8.2 ([#96](https://github.com/skilbjo/logger/issues/96)) ([bfb6d52](https://github.com/skilbjo/logger/commit/bfb6d522f396d173f1f769278852433b8d111d22))
+* **deps-dev:** bump typescript-transform-paths from 3.5.2 to 3.5.3 ([#91](https://github.com/skilbjo/logger/issues/91)) ([410e9dc](https://github.com/skilbjo/logger/commit/410e9dcbaf652e33e1c65f568107afe3c979da5f))
+* **deps:** bump dependabot/fetch-metadata from 2.2.0 to 2.3.0 ([#94](https://github.com/skilbjo/logger/issues/94)) ([f7b1e4f](https://github.com/skilbjo/logger/commit/f7b1e4f6070d9b066bc9f2420d357cef54e90d12))
+* **deps:** bump pino from 9.5.0 to 9.6.0 ([#92](https://github.com/skilbjo/logger/issues/92)) ([1af1397](https://github.com/skilbjo/logger/commit/1af1397efcea5459bf5d914481f27902804bc89e))
+
 ## [1.0.25](https://github.com/skilbjo/logger/compare/v1.0.24...v1.0.25) (2024-11-25)
 
 
