@@ -1,14 +1,6 @@
 import pino from 'pino';
 import type { LoggerOptions, SerializedError } from 'pino';
 
-export type LogLevels = 'debug' | 'error' | 'fatal' | 'info' | 'trace' | 'warn';
-
-type LogFn = (object: Record<string, unknown>, message: string) => void;
-type ErrorLogFn = (
-  object: { err: Error } & Partial<Record<string, unknown>>,
-  message: string
-) => void;
-
 export type Logger = {
   debug: LogFn;
   error: ErrorLogFn;
@@ -18,6 +10,14 @@ export type Logger = {
   };
   warn: LogFn;
 };
+
+export type LogLevels = 'debug' | 'error' | 'fatal' | 'info' | 'trace' | 'warn';
+type ErrorLogFn = (
+  object: { err: Error } & Partial<Record<string, unknown>>,
+  message: string
+) => void;
+
+type LogFn = (object: Record<string, unknown>, message: string) => void;
 
 export const mixin = (): Record<string, unknown> => ({
   lambdaName: process.env.AWS_LAMBDA_FUNCTION_NAME,
