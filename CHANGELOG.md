@@ -1,3 +1,20 @@
+## [1.0.27](https://github.com/skilbjo/logger/compare/v1.0.26...v1.0.27) (2025-07-30)
+
+
+### Bug Fixes
+
+* add a reversed-args logger ([a3b3208](https://github.com/skilbjo/logger/commit/a3b32086b29dc815a3084fac6efb52b9ea4a5968))
+* **deps-dev:** bump @types/http-errors from 2.0.4 to 2.0.5 ([#106](https://github.com/skilbjo/logger/issues/106)) ([fa6c3c3](https://github.com/skilbjo/logger/commit/fa6c3c30358d3471ec68848aee6169d31e5e6ffb))
+* **deps-dev:** bump ts-jest from 29.2.6 to 29.3.0 ([#99](https://github.com/skilbjo/logger/issues/99)) ([7b901bd](https://github.com/skilbjo/logger/commit/7b901bd0720efcd74b0369e83437bea82fb987dd))
+* **deps-dev:** bump ts-jest from 29.3.0 to 29.3.1 ([#100](https://github.com/skilbjo/logger/issues/100)) ([b279914](https://github.com/skilbjo/logger/commit/b2799145c61a9acd779a30e75c4310c1b9c2c1a2))
+* **deps-dev:** bump ts-jest from 29.3.1 to 29.3.2 ([#102](https://github.com/skilbjo/logger/issues/102)) ([7143ac7](https://github.com/skilbjo/logger/commit/7143ac73039b8829775e9e480061f5efa1eeb5df))
+* **deps-dev:** bump ts-jest from 29.3.2 to 29.3.4 ([#104](https://github.com/skilbjo/logger/issues/104)) ([ae7baa1](https://github.com/skilbjo/logger/commit/ae7baa113b2a813884c11e966e4a207761b7fcd7))
+* **deps-dev:** bump ts-jest from 29.3.4 to 29.4.0 ([#107](https://github.com/skilbjo/logger/issues/107)) ([fec28c5](https://github.com/skilbjo/logger/commit/fec28c56d797a0e0aae0f45e228fce28dd33884c))
+* **deps-dev:** bump typescript from 5.8.2 to 5.8.3 ([#101](https://github.com/skilbjo/logger/issues/101)) ([7927990](https://github.com/skilbjo/logger/commit/7927990c2f8fc73e33187c337f78ba8ffc562bf0))
+* **deps-dev:** bump typescript-transform-paths from 3.5.3 to 3.5.5 ([#98](https://github.com/skilbjo/logger/issues/98)) ([786e3da](https://github.com/skilbjo/logger/commit/786e3dad7d28ccec20fc34c73ef2633f4729639a))
+* **deps:** bump dependabot/fetch-metadata from 2.3.0 to 2.4.0 ([#103](https://github.com/skilbjo/logger/issues/103)) ([e2bb86d](https://github.com/skilbjo/logger/commit/e2bb86d6abfaa366ea1ae6581ccd2a4df6e2706d))
+* **deps:** bump pino from 9.6.0 to 9.7.0 ([#105](https://github.com/skilbjo/logger/issues/105)) ([ce2ae86](https://github.com/skilbjo/logger/commit/ce2ae86a664a6b9229d690ea66052d018ad92eed))
+
 ## [1.0.26](https://github.com/skilbjo/logger/compare/v1.0.25...v1.0.26) (2025-03-05)
 
 
