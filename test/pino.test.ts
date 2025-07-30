@@ -39,7 +39,7 @@ describe('pino', () => {
       expect(out.level).toEqual('info');
     });
 
-    it('logs an warn-level message', () => {
+    it('logs a warn-level message (implicit)', () => {
       const { getMessage, stream } = fakeStream();
       const log = logger.create(undefined, stream);
 
@@ -51,7 +51,31 @@ describe('pino', () => {
       expect(out.level).toEqual('warn');
     });
 
-    it('logs an debug-level message', () => {
+    it('logs a warn-level message (explcit)', () => {
+      const { getMessage, stream } = fakeStream();
+      const log = logger.create({ level: 'warn' }, stream);
+
+      log.warn({}, 'test');
+
+      const out = getMessage();
+
+      expect(out.msg).toEqual('test');
+      expect(out.level).toEqual('warn');
+    });
+
+    it('logs an error-level message', () => {
+      const { getMessage, stream } = fakeStream();
+      const log = logger.create({ level: 'error' }, stream);
+
+      log.error({ err: 'test' as unknown as Error }, 'error');
+
+      const out = getMessage();
+
+      expect(out.msg).toEqual('test');
+      expect(out.level).toEqual('error');
+    });
+
+    it('logs a debug-level message', () => {
       const { getMessage, stream } = fakeStream();
       const log = logger.create({ level: 'debug' }, stream);
 
