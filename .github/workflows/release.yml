@@ -11,12 +11,13 @@ defaults:
 
 jobs:
   publish-artifact:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
     permissions:
       issues: write
       packages: write
       id-token: write
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
+      contents: write
 
     outputs:
       new_release_version:   ${{ steps.semantic.outputs.new_release_version }}
