@@ -1,3 +1,14 @@
+## [1.0.28](https://github.com/skilbjo/logger/compare/v1.0.27...v1.0.28) (2025-08-29)
+
+
+### Bug Fixes
+
+* **deps-dev:** bump ts-jest from 29.4.0 to 29.4.1 ([#114](https://github.com/skilbjo/logger/issues/114)) ([cb5f4e3](https://github.com/skilbjo/logger/commit/cb5f4e328d5cb76078f6cec20332134cbbc55cc8))
+* **deps-dev:** bump typescript from 5.8.3 to 5.9.2 ([#113](https://github.com/skilbjo/logger/issues/113)) ([4a895fa](https://github.com/skilbjo/logger/commit/4a895fa73072089d31ea0937936147aa242fb284))
+* **deps:** bump actions/checkout from 4 to 5 ([#116](https://github.com/skilbjo/logger/issues/116)) ([01c4481](https://github.com/skilbjo/logger/commit/01c4481dafeae188a76c3e3b07b3578e1443b0ed))
+* **deps:** bump pino from 9.7.0 to 9.8.0 ([#115](https://github.com/skilbjo/logger/issues/115)) ([4c774dd](https://github.com/skilbjo/logger/commit/4c774ddb62ea20cadee1b9ecb068ce95554121e1))
+* **deps:** bump pino from 9.8.0 to 9.9.0 ([#117](https://github.com/skilbjo/logger/issues/117)) ([fa9871d](https://github.com/skilbjo/logger/commit/fa9871d8f4a1440af7c9f241cc060587bf6c6524))
+
 ## [1.0.27](https://github.com/skilbjo/logger/compare/v1.0.26...v1.0.27) (2025-07-30)
 
 
