@@ -64,8 +64,5 @@ jobs:
 
       - name: Publish to NPM
         if: steps.semantic.outputs.new_release_published == 'true'
-        uses: JS-DevTools/npm-publish@v3
-        with:
-          token: ${{ secrets.NPM_TOKEN }}
-          access: public
-          package: dist/package.json
+        run: |
+          npm publish

@@ -14,6 +14,9 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     if: github.event.pull_request.head.repo.full_name == github.repository # Security: Only run on PRs from the same repository
+    permissions:
+      contents: read # Needed for checkout and npm install
+      pull-requests: read # Needed to read PR information
 
     steps:
       - uses: actions/checkout@v5
@@ -28,10 +31,6 @@ jobs:
         run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.READ_ONLY_PAT }}" >> ~/.npmrc
 
       - run: make ci
-        env:
-          GITHUB_TOKEN: ${{ secrets.READ_ONLY_PAT }}
-          NPM_TOKEN: ${{ secrets.READ_ONLY_PAT }}
-          NODE_AUTH_TOKEN: ${{ secrets.READ_ONLY_PAT }}
 
       - name: Set up NPM authentication
         run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.ACTIONS_TOKEN }}" >> ~/.npmrc
