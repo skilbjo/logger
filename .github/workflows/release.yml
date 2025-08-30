@@ -62,7 +62,12 @@ jobs:
           npm --no-git-tag-version version ${{ steps.semantic.outputs.new_release_version }}
           npm run prepare-npm
 
+      # - name: Set up NPM authentication
+        # run: |
+          # echo "registry=https://registry.npmjs.org/" >> ~/.npmrc
+
       - name: Publish to NPM
         if: steps.semantic.outputs.new_release_published == 'true'
         run: |
+          cd dist
           npm publish
