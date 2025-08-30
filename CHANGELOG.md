@@ -1,3 +1,10 @@
+## [1.0.29](https://github.com/skilbjo/logger/compare/v1.0.28...v1.0.29) (2025-08-30)
+
+
+### Bug Fixes
+
+* test trusted publishing ([6ec9e36](https://github.com/skilbjo/logger/commit/6ec9e367e9aba038a3c952477497b19c463bb034))
+
 ## [1.0.28](https://github.com/skilbjo/logger/compare/v1.0.27...v1.0.28) (2025-08-29)
 
 
