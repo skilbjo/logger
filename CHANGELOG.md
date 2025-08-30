@@ -1,3 +1,10 @@
+## [1.0.30](https://github.com/skilbjo/logger/compare/v1.0.29...v1.0.30) (2025-08-30)
+
+
+### Bug Fixes
+
+* try this ([46ec3db](https://github.com/skilbjo/logger/commit/46ec3db7406cfc7aec928c0395f284cb2b3fe666))
+
 ## [1.0.29](https://github.com/skilbjo/logger/compare/v1.0.28...v1.0.29) (2025-08-30)
 
 
