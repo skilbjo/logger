@@ -15,10 +15,13 @@ jobs:
     timeout-minutes: 10
     if: github.event.pull_request.head.repo.full_name == github.repository # Security: Only run on PRs from the same repository
     permissions:
-      contents: read # Needed for checkout and npm install
-      pull-requests: read # Needed to read PR information
+      contents: read
+      pull-requests: read
 
     steps:
+      - uses: step-security/harden-runner@v2
+        with:
+          egress-policy: audit
       - uses: actions/checkout@v5
         with:
           persist-credentials: false
