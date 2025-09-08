@@ -1,3 +1,12 @@
+## [1.0.32](https://github.com/skilbjo/logger/compare/v1.0.31...v1.0.32) (2025-09-08)
+
+
+### Bug Fixes
+
+* **deps:** bump actions/setup-node from 4 to 5 ([#121](https://github.com/skilbjo/logger/issues/121)) ([cfd1b16](https://github.com/skilbjo/logger/commit/cfd1b165dfb04d5559b3f4bf5928dffb5b761483))
+* **deps:** bump cycjimmy/semantic-release-action from 4 to 5 ([#120](https://github.com/skilbjo/logger/issues/120)) ([892e041](https://github.com/skilbjo/logger/commit/892e041e7b8656363c2e42d44d8f74557a1245ef))
+* **deps:** bump pino from 9.9.0 to 9.9.4 ([#123](https://github.com/skilbjo/logger/issues/123)) ([fbbfcca](https://github.com/skilbjo/logger/commit/fbbfcca0bf0db539ca3ee368774196dac53ee4a5))
+
 ## [1.0.31](https://github.com/skilbjo/logger/compare/v1.0.30...v1.0.31) (2025-08-30)
 
 
