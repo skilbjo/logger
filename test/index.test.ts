@@ -22,7 +22,7 @@ describe('logger', () => {
     const actual = logFn();
 
     expect(typeof log).toBe('object');
-    expect(logFn).not.toThrowError();
+    expect(logFn).not.toThrow();
     expect(actual).toBeUndefined();
   });
 });
