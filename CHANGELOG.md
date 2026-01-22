@@ -1,3 +1,28 @@
+## [1.0.33](https://github.com/skilbjo/logger/compare/v1.0.32...v1.0.33) (2026-01-22)
+
+
+### Bug Fixes
+
+* **deps-dev:** bump @skilbjo/config-rc from 1.0.23 to 1.0.27 ([#118](https://github.com/skilbjo/logger/issues/118)) ([4a3c4d4](https://github.com/skilbjo/logger/commit/4a3c4d47a319f25f8cd81619a69da09adde348c6))
+* **deps-dev:** bump http-errors from 2.0.0 to 2.0.1 ([#136](https://github.com/skilbjo/logger/issues/136)) ([a4655e3](https://github.com/skilbjo/logger/commit/a4655e3dec0aadc13f6ee963b2aa0f035e6fb884))
+* **deps-dev:** bump jest from 29.7.0 to 30.1.3 ([#122](https://github.com/skilbjo/logger/issues/122)) ([f1c4603](https://github.com/skilbjo/logger/commit/f1c4603670a11d30be84102db6de5070cef637f9))
+* **deps-dev:** bump jest from 30.1.3 to 30.2.0 ([#128](https://github.com/skilbjo/logger/issues/128)) ([00d5e00](https://github.com/skilbjo/logger/commit/00d5e00d3c1bad8ef61b072babdbf0b5770bbc38))
+* **deps-dev:** bump js-yaml in the npm_and_yarn group across 1 directory ([#135](https://github.com/skilbjo/logger/issues/135)) ([04757c2](https://github.com/skilbjo/logger/commit/04757c2a53e0d0bdf6acc07308311931a643c121))
+* **deps-dev:** bump ts-jest from 29.4.1 to 29.4.4 ([#125](https://github.com/skilbjo/logger/issues/125)) ([53a48bd](https://github.com/skilbjo/logger/commit/53a48bd74e0411540e7fa0110e8742f01d304b99))
+* **deps-dev:** bump ts-jest from 29.4.4 to 29.4.5 ([#132](https://github.com/skilbjo/logger/issues/132)) ([2ee6d66](https://github.com/skilbjo/logger/commit/2ee6d6695b2194c560c359c82dd0cf0afbd0a8d8))
+* **deps-dev:** bump typescript from 5.9.2 to 5.9.3 ([#131](https://github.com/skilbjo/logger/issues/131)) ([d0e7118](https://github.com/skilbjo/logger/commit/d0e711884b770fbe636a381eae4ac255b4dd91a0))
+* **deps-dev:** bump typescript-transform-paths from 3.5.5 to 3.5.6 ([#141](https://github.com/skilbjo/logger/issues/141)) ([9ed0d8f](https://github.com/skilbjo/logger/commit/9ed0d8f61685b11952dbd9504a713a7e22e423d8))
+* **deps-dev:** bump winston from 3.17.0 to 3.18.3 ([#130](https://github.com/skilbjo/logger/issues/130)) ([f61e0b8](https://github.com/skilbjo/logger/commit/f61e0b8eadb9e5ad14f5e351a268697b242d5a4a))
+* **deps-dev:** bump winston from 3.18.3 to 3.19.0 ([#139](https://github.com/skilbjo/logger/issues/139)) ([72cb8ff](https://github.com/skilbjo/logger/commit/72cb8ffc407db5d0c72cc7b04230cd77c12dbb6b))
+* **deps:** bump actions/setup-node from 5 to 6 ([#133](https://github.com/skilbjo/logger/issues/133)) ([4b3925e](https://github.com/skilbjo/logger/commit/4b3925e91cc6b5a96e52b01cf6fc84878aa866dd))
+* **deps:** bump cycjimmy/semantic-release-action from 5 to 6 ([#138](https://github.com/skilbjo/logger/issues/138)) ([a6b3847](https://github.com/skilbjo/logger/commit/a6b38476e31b6a00fd9c100bde2d2ffd3363aeaf))
+* **deps:** bump dependabot/fetch-metadata from 2.4.0 to 2.5.0 ([#142](https://github.com/skilbjo/logger/issues/142)) ([6ac29e5](https://github.com/skilbjo/logger/commit/6ac29e582262381469a798c92f900c4fe0066169))
+* **deps:** bump pino from 10.0.0 to 10.1.0 ([#134](https://github.com/skilbjo/logger/issues/134)) ([79b13a3](https://github.com/skilbjo/logger/commit/79b13a3ec430926c9e8f3b72cf45f12224c91635))
+* **deps:** bump pino from 10.1.0 to 10.2.0 ([#144](https://github.com/skilbjo/logger/issues/144)) ([46fe9e5](https://github.com/skilbjo/logger/commit/46fe9e5b679aeb11c6e7bcefe640a5f35f5d7a8a))
+* **deps:** bump pino from 9.12.0 to 10.0.0 ([#129](https://github.com/skilbjo/logger/issues/129)) ([f44e46e](https://github.com/skilbjo/logger/commit/f44e46e2eca0694d26b2bc33a4ad508ead138622))
+* **deps:** bump pino from 9.9.4 to 9.9.5 ([#124](https://github.com/skilbjo/logger/issues/124)) ([0c5a525](https://github.com/skilbjo/logger/commit/0c5a5253f29c6920f64b599c3aab87e7b09fe843))
+* **deps:** bump pino from 9.9.5 to 9.12.0 ([#127](https://github.com/skilbjo/logger/issues/127)) ([c2deb55](https://github.com/skilbjo/logger/commit/c2deb55cd2e7172b6aa174dcae6f4743a2b0a759))
+
 ## [1.0.32](https://github.com/skilbjo/logger/compare/v1.0.31...v1.0.32) (2025-09-08)
 
 
