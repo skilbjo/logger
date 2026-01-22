@@ -35,20 +35,19 @@
     "openapi"
   ],
   "dependencies": {
-    "pino": "10.2.0"
+    "pino": "10.2.1"
   },
   "devDependencies": {
     "@commitlint/cli": "17.0.0",
     "@commitlint/config-angular": "17.0.0",
-    "@skilbjo/config-rc": "1.0.29",
-    "@skilbjo/eslint-config-rc": "npm:@skilbjo/config-rc@1.0.27",
+    "@skilbjo/config-rc": "1.0.33",
     "@types/http-errors": "2.0.5",
     "depcheck": "1.4.7",
-    "eslint": "8.57.0",
+    "eslint": "9.39.2",
     "http-errors": "2.0.1",
     "husky": "8.0.1",
     "jest": "30.2.0",
-    "ts-jest": "29.4.5",
+    "ts-jest": "29.4.6",
     "ts-node": "10.9.2",
     "ts-patch": "3.3.0",
     "typescript": "5.9.3",
