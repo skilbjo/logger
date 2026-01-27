@@ -1,3 +1,10 @@
+## [1.0.34](https://github.com/skilbjo/logger/compare/v1.0.33...v1.0.34) (2026-01-27)
+
+
+### Bug Fixes
+
+* **deps:** bump pino from 10.2.1 to 10.3.0 ([#146](https://github.com/skilbjo/logger/issues/146)) ([8859c5d](https://github.com/skilbjo/logger/commit/8859c5d54bcfc38c1dd750fda6fb89cb5bb6d6c9))
+
 ## [1.0.33](https://github.com/skilbjo/logger/compare/v1.0.32...v1.0.33) (2026-01-22)
 
 
