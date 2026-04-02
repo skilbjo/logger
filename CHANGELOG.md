@@ -1,3 +1,18 @@
+## [1.0.35](https://github.com/skilbjo/logger/compare/v1.0.34...v1.0.35) (2026-04-02)
+
+
+### Bug Fixes
+
+* **deps-dev:** bump @skilbjo/config-rc from 1.0.35 to 1.0.39 ([#147](https://github.com/skilbjo/logger/issues/147)) ([3442d91](https://github.com/skilbjo/logger/commit/3442d913e60a0ef0386282f0a0ea444e1dbac349))
+* **deps-dev:** bump @skilbjo/config-rc from 1.0.39 to 1.0.40 ([#153](https://github.com/skilbjo/logger/issues/153)) ([d0350f2](https://github.com/skilbjo/logger/commit/d0350f24666b4c09dc8e31dde5d7336d62f20387))
+* **deps-dev:** bump flatted in the npm_and_yarn group across 1 directory ([#156](https://github.com/skilbjo/logger/issues/156)) ([4214b70](https://github.com/skilbjo/logger/commit/4214b70576e87003c8426fe723dc91ad707946d7))
+* **deps-dev:** bump handlebars ([#159](https://github.com/skilbjo/logger/issues/159)) ([1cebb54](https://github.com/skilbjo/logger/commit/1cebb545dfc6083115048824fd5bfdef25cff220))
+* **deps-dev:** bump jest from 30.2.0 to 30.3.0 ([#155](https://github.com/skilbjo/logger/issues/155)) ([b3cadcb](https://github.com/skilbjo/logger/commit/b3cadcb124dc28f45e72036c97fb05f66d112ca1))
+* **deps-dev:** bump minimatch ([#151](https://github.com/skilbjo/logger/issues/151)) ([1341875](https://github.com/skilbjo/logger/commit/13418756104b1f8b6bdb1341592a45b1d8be3ea3))
+* **deps-dev:** bump picomatch ([#158](https://github.com/skilbjo/logger/issues/158)) ([a2ed585](https://github.com/skilbjo/logger/commit/a2ed5852318fc801202b72c336a14a0168370152))
+* **deps:** bump dependabot/fetch-metadata from 2.5.0 to 3.0.0 ([#160](https://github.com/skilbjo/logger/issues/160)) ([e62672d](https://github.com/skilbjo/logger/commit/e62672d5918268ee14d1e2da903f29d42120a1d9))
+* **deps:** bump pino from 10.3.0 to 10.3.1 ([#149](https://github.com/skilbjo/logger/issues/149)) ([274f919](https://github.com/skilbjo/logger/commit/274f919effc326f0337771bb9dcc1be7f9ce288e))
+
 ## [1.0.34](https://github.com/skilbjo/logger/compare/v1.0.33...v1.0.34) (2026-01-27)
 
 
