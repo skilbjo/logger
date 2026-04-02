@@ -8,6 +8,7 @@ const config: JestConfigWithTsJest = {
     '@src/(.*)': '<rootDir>/src/$1',
     '@test/(.*)': '<rootDir>/test/$1',
   },
+  modulePathIgnorePatterns: ['<rootDir>/dist/'],
   preset: 'ts-jest',
   rootDir: './',
   testEnvironment: 'node',

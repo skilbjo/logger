@@ -4,6 +4,7 @@
     "src/**/*.ts"
   ],
   "compilerOptions": {
+    "rootDir": "src",
     "outDir": "dist",
     "plugins": [
       {
