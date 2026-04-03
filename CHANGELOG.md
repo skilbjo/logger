@@ -1,3 +1,12 @@
+## [1.0.36](https://github.com/skilbjo/logger/compare/v1.0.35...v1.0.36) (2026-04-03)
+
+
+### Bug Fixes
+
+* **deps-dev:** bump lodash in the npm_and_yarn group across 1 directory ([#162](https://github.com/skilbjo/logger/issues/162)) ([76c5ae5](https://github.com/skilbjo/logger/commit/76c5ae57284a47ea6a408e451109c32204165b14))
+* esm ([1b84497](https://github.com/skilbjo/logger/commit/1b8449719b9346f8dacf363f0367afeee31bc4a8))
+* fix tests ([fddd437](https://github.com/skilbjo/logger/commit/fddd43725a08c2a21eb78d2c034ece7fb8bae930))
+
 ## [1.0.35](https://github.com/skilbjo/logger/compare/v1.0.34...v1.0.35) (2026-04-02)
 
 
