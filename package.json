@@ -3,6 +3,7 @@
   "name": "@skilbjo/logger",
   "version": "0.0.1",
   "main": "index.js",
+  "type": "module",
   "typings": "index.d.ts",
   "private": false,
   "publishConfig": {
@@ -16,10 +17,11 @@
   },
   "scripts": {
     "prepare": "if [ -z \"$GITHUB_ACTIONS\" ]; then npx husky install; fi",
+    "exec": "ts-node --esm -r tsconfig-paths/register -P tsconfig.json",
     "eslint": "eslint .",
     "depcheck": "depcheck",
     "lint": "npm run eslint",
-    "test": "jest --runInBand",
+    "test": "node --no-warnings --experimental-vm-modules node_modules/.bin/jest --runInBand",
     "build": "tspc -p tsconfig.build.json",
     "postbuild": "jq 'del(.files)' package.json >dist/package.json",
     "prepare-npm": "jq 'del(.publishConfig, .files) | . + { publishConfig: { registry: \"https://registry.npmjs.org/\", access: \"public\", provenance: true } }' package.json >package2.json && mv package2.json dist/package.json"

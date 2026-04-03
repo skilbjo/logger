@@ -2,6 +2,7 @@ import type { JestConfigWithTsJest } from 'ts-jest';
 
 const config: JestConfigWithTsJest = {
   coverageReporters: ['lcov'],
+  extensionsToTreatAsEsm: ['.ts'],
   moduleFileExtensions: ['ts', 'json', 'js'],
   moduleNameMapper: {
     '@dist/(.*)': '<rootDir>/dist/$1',
@@ -9,7 +10,7 @@ const config: JestConfigWithTsJest = {
     '@test/(.*)': '<rootDir>/test/$1',
   },
   modulePathIgnorePatterns: ['<rootDir>/dist/'],
-  preset: 'ts-jest',
+  preset: 'ts-jest/presets/default-esm',
   rootDir: './',
   testEnvironment: 'node',
   testMatch: ['**/*.(test|integration).ts'],
@@ -18,6 +19,7 @@ const config: JestConfigWithTsJest = {
       'ts-jest',
       {
         tsconfig: './tsconfig.json',
+        useESM: true,
       },
     ],
   },

@@ -8,6 +8,9 @@
     "jest.config.ts"
   ],
   "compilerOptions": {
+    "target": "ESNext",
+    "module": "ES2022",
+
     "paths": {
       "@src/*": [
         "./src/*"
