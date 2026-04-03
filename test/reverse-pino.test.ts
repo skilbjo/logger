@@ -1,3 +1,4 @@
+import { jest } from '@jest/globals';
 import createError from 'http-errors';
 import { reversePino as reverseLogger } from '@src/index';
 import { fakeStream } from '@test/utils';

@@ -40,6 +40,7 @@
     "pino": "10.3.1"
   },
   "devDependencies": {
+    "@jest/globals": "30.3.0",
     "@commitlint/cli": "20.5.0",
     "@commitlint/config-angular": "20.5.0",
     "@skilbjo/config-rc": "1.0.41",

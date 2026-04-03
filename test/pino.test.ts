@@ -1,5 +1,6 @@
 import type { Bindings } from 'pino';
 
+import { jest } from '@jest/globals';
 import createError from 'http-errors';
 import type { HttpError } from 'http-errors';
 import * as logger from '@src/index';
