@@ -1,3 +1,10 @@
+## [1.0.37](https://github.com/skilbjo/logger/compare/v1.0.36...v1.0.37) (2026-04-03)
+
+
+### Bug Fixes
+
+* publish to npm ([bb9ee34](https://github.com/skilbjo/logger/commit/bb9ee34aa1eb25a604748efff782d5e50263811d))
+
 ## [1.0.36](https://github.com/skilbjo/logger/compare/v1.0.35...v1.0.36) (2026-04-03)
 
 
