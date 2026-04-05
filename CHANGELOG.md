@@ -1,3 +1,10 @@
+## [1.0.39](https://github.com/skilbjo/logger/compare/v1.0.38...v1.0.39) (2026-04-05)
+
+
+### Bug Fixes
+
+* consumers can use paths/imports ([bb85da5](https://github.com/skilbjo/logger/commit/bb85da54c8098c495f21e494a885e36a318c0651))
+
 ## [1.0.38](https://github.com/skilbjo/logger/compare/v1.0.37...v1.0.38) (2026-04-05)
 
 
