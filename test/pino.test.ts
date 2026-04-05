@@ -1,6 +1,7 @@
+import { afterEach, beforeEach, describe, it } from 'node:test';
+import assert from 'node:assert/strict';
 import type { Bindings } from 'pino';
 
-import { jest } from '@jest/globals';
 import createError from 'http-errors';
 import type { HttpError } from 'http-errors';
 import * as logger from '@src/index';
@@ -24,11 +25,9 @@ class InternalServerError extends Error implements HttpResponseableError {
   }
 }
 
-describe('pino', () => {
-  describe('when no config environment variables exist', () => {
-    beforeEach(() => jest.resetModules());
-
-    it('logs an info-level message', () => {
+void describe('pino', () => {
+  void describe('when no config environment variables exist', () => {
+    void it('logs an info-level message', () => {
       const { getMessage, stream } = fakeStream();
       const log = logger.create(undefined, stream);
 
@@ -36,11 +35,11 @@ describe('pino', () => {
 
       const out = getMessage();
 
-      expect(out.msg).toEqual('test');
-      expect(out.level).toEqual('info');
+      assert.strictEqual(out.msg, 'test');
+      assert.strictEqual(out.level, 'info');
     });
 
-    it('logs a warn-level message (implicit)', () => {
+    void it('logs a warn-level message (implicit)', () => {
       const { getMessage, stream } = fakeStream();
       const log = logger.create(undefined, stream);
 
@@ -48,11 +47,11 @@ describe('pino', () => {
 
       const out = getMessage();
 
-      expect(out.msg).toEqual('test');
-      expect(out.level).toEqual('warn');
+      assert.strictEqual(out.msg, 'test');
+      assert.strictEqual(out.level, 'warn');
     });
 
-    it('logs a warn-level message (explcit)', () => {
+    void it('logs a warn-level message (explcit)', () => {
       const { getMessage, stream } = fakeStream();
       const log = logger.create({ level: 'warn' }, stream);
 
@@ -60,11 +59,11 @@ describe('pino', () => {
 
       const out = getMessage();
 
-      expect(out.msg).toEqual('test');
-      expect(out.level).toEqual('warn');
+      assert.strictEqual(out.msg, 'test');
+      assert.strictEqual(out.level, 'warn');
     });
 
-    it('logs an error-level message', () => {
+    void it('logs an error-level message', () => {
       const { getMessage, stream } = fakeStream();
       const log = logger.create({ level: 'error' }, stream);
 
@@ -72,11 +71,11 @@ describe('pino', () => {
 
       const out = getMessage();
 
-      expect(out.msg).toEqual('test');
-      expect(out.level).toEqual('error');
+      assert.strictEqual(out.msg, 'test');
+      assert.strictEqual(out.level, 'error');
     });
 
-    it('logs a debug-level message', () => {
+    void it('logs a debug-level message', () => {
       const { getMessage, stream } = fakeStream();
       const log = logger.create({ level: 'debug' }, stream);
 
@@ -84,37 +83,27 @@ describe('pino', () => {
 
       const out = getMessage();
 
-      expect(out.msg).toEqual('test');
-      expect(out.level).toEqual('debug');
+      assert.strictEqual(out.msg, 'test');
+      assert.strictEqual(out.level, 'debug');
     });
   });
 
-  describe('when the expected environment variables are set', () => {
-    beforeEach(() => {
-      jest.resetModules();
-
-      process.env = Object.assign(process.env, {
-        AWS_LAMBDA_FUNCTION_NAME: 'fakeLambdaFunctionName',
-      });
-      process.env = Object.assign(process.env, {
-        AWS_LAMBDA_LOG_STREAM_NAME: 'fakeLogStreamName',
-      });
-      process.env = Object.assign(process.env, {
-        _X_AMZN_TRACE_ID: 'fakeTraceId',
-      });
-      process.env = Object.assign(process.env, {
-        _X_AMZN_REQUEST_ID: 'fakeRequestId',
-      });
+  void describe('when the expected environment variables are set', () => {
+    void beforeEach(() => {
+      process.env.AWS_LAMBDA_FUNCTION_NAME = 'fakeLambdaFunctionName';
+      process.env.AWS_LAMBDA_LOG_STREAM_NAME = 'fakeLogStreamName';
+      process.env._X_AMZN_TRACE_ID = 'fakeTraceId';
+      process.env._X_AMZN_REQUEST_ID = 'fakeRequestId';
     });
 
-    afterEach(() => {
+    void afterEach(() => {
       delete process.env.AWS_LAMBDA_FUNCTION_NAME;
       delete process.env.AWS_LAMBDA_LOG_STREAM_NAME;
       delete process.env._X_AMZN_TRACE_ID;
       delete process.env._X_AMZN_REQUEST_ID;
     });
 
-    it('logs an info-level message', () => {
+    void it('logs an info-level message', () => {
       const { getMessage, stream } = fakeStream();
       const log = logger.create(undefined, stream);
 
@@ -122,19 +111,17 @@ describe('pino', () => {
 
       const out = getMessage();
 
-      expect(out.msg).toEqual('test');
-      expect(out.level).toEqual('info');
-      expect(out.lambdaName).toEqual('fakeLambdaFunctionName');
-      expect(out.logStream).toEqual('fakeLogStreamName');
-      expect(out.requestId).toEqual('fakeRequestId');
-      expect(out.xRayTraceId).toEqual('fakeTraceId');
+      assert.strictEqual(out.msg, 'test');
+      assert.strictEqual(out.level, 'info');
+      assert.strictEqual(out.lambdaName, 'fakeLambdaFunctionName');
+      assert.strictEqual(out.logStream, 'fakeLogStreamName');
+      assert.strictEqual(out.requestId, 'fakeRequestId');
+      assert.strictEqual(out.xRayTraceId, 'fakeTraceId');
     });
   });
 
-  describe('when the payload of the log message is complex', () => {
-    beforeEach(() => jest.resetModules());
-
-    it('handles logging an error correctly', () => {
+  void describe('when the payload of the log message is complex', () => {
+    void it('handles logging an error correctly', () => {
       const seedMsg = 'test';
       const expectedMsg = seedMsg;
       const expectedLevel = 'error';
@@ -148,13 +135,13 @@ describe('pino', () => {
       const actual = getMessage();
       const { level, msg, stack, type } = actual;
 
-      expect(msg).toEqual(expectedMsg);
-      expect(level).toEqual(expectedLevel);
-      expect(type).toEqual(expectedType);
-      expect(stack.startsWith('Error: FailBus\n')).toBeTruthy();
+      assert.strictEqual(msg, expectedMsg);
+      assert.strictEqual(level, expectedLevel);
+      assert.strictEqual(type, expectedType);
+      assert.ok(stack.startsWith('Error: FailBus\n'));
     });
 
-    it('handles logging an error correctly', () => {
+    void it('handles logging an error correctly', () => {
       const seedMsg = 'test';
       const expectedMsg = seedMsg;
       const expectedLevel = 'error';
@@ -168,13 +155,13 @@ describe('pino', () => {
       const actual = getMessage();
       const { level, msg, stack, type } = actual;
 
-      expect(msg).toEqual(expectedMsg);
-      expect(level).toEqual(expectedLevel);
-      expect(type).toEqual(expectedType);
-      expect(stack.startsWith('Error: FailBus\n')).toBeTruthy();
+      assert.strictEqual(msg, expectedMsg);
+      assert.strictEqual(level, expectedLevel);
+      assert.strictEqual(type, expectedType);
+      assert.ok(stack.startsWith('Error: FailBus\n'));
     });
 
-    it('can also throw additional non-error info in the payload (in addition to the error)', () => {
+    void it('can also throw additional non-error info in the payload (in addition to the error)', () => {
       const { getMessage, stream } = fakeStream();
       const log = logger.create(undefined, stream);
 
@@ -182,13 +169,13 @@ describe('pino', () => {
 
       const out = getMessage();
 
-      expect(out.msg).toEqual('test');
-      expect(out.level).toEqual('error');
-      expect(out.type).toEqual('Error');
-      expect(out.stack.startsWith('Error: FailBus\n')).toBeTruthy();
+      assert.strictEqual(out.msg, 'test');
+      assert.strictEqual(out.level, 'error');
+      assert.strictEqual(out.type, 'Error');
+      assert.ok(out.stack.startsWith('Error: FailBus\n'));
     });
 
-    it('handles logging an object correctly', () => {
+    void it('handles logging an object correctly', () => {
       const { getMessage, stream } = fakeStream();
       const log = logger.create(undefined, stream);
 
@@ -199,18 +186,16 @@ describe('pino', () => {
 
       const out = getMessage();
 
-      expect(out.msg).toEqual('test');
-      expect(out.level).toEqual('info');
-      expect(out.soComplex).toEqual(true);
-      expect(out.aNumber).toEqual(3);
-      expect(out.anArray).toEqual([1, 2, 3, { one: 1, two: 2 }]);
+      assert.strictEqual(out.msg, 'test');
+      assert.strictEqual(out.level, 'info');
+      assert.strictEqual(out.soComplex, true);
+      assert.strictEqual(out.aNumber, 3);
+      assert.deepStrictEqual(out.anArray, [1, 2, 3, { one: 1, two: 2 }]);
     });
   });
 
-  describe('when you need something redacted', () => {
-    beforeEach(() => jest.resetModules());
-
-    it('redacts the specified value', () => {
+  void describe('when you need something redacted', () => {
+    void it('redacts the specified value', () => {
       const { getMessage, stream } = fakeStream();
       const log = logger.create({ redact: ['password'] }, stream);
 
@@ -218,17 +203,15 @@ describe('pino', () => {
 
       const out = getMessage();
 
-      expect(out.msg).toEqual('test');
-      expect(out.level).toEqual('info');
-      expect(out.user).toEqual('someUser');
-      expect(out.password).toEqual('[Redacted]');
+      assert.strictEqual(out.msg, 'test');
+      assert.strictEqual(out.level, 'info');
+      assert.strictEqual(out.user, 'someUser');
+      assert.strictEqual(out.password, '[Redacted]');
     });
   });
 
-  describe('when you need to override the mixin', () => {
-    beforeEach(() => jest.resetModules());
-
-    it('logs what your mixin returns', () => {
+  void describe('when you need to override the mixin', () => {
+    void it('logs what your mixin returns', () => {
       const { getMessage, stream } = fakeStream();
       const mixin = (): Record<string, unknown> => ({
         yoDawg: 'I love functions',
@@ -241,16 +224,14 @@ describe('pino', () => {
 
       const out = getMessage();
 
-      expect(out.msg).toEqual('test');
-      expect(out.level).toEqual('info');
-      expect(out.yoDawg).toEqual('I love functions');
+      assert.strictEqual(out.msg, 'test');
+      assert.strictEqual(out.level, 'info');
+      assert.strictEqual(out.yoDawg, 'I love functions');
     });
   });
 
-  describe('when you need to override the formatters', () => {
-    beforeEach(() => jest.resetModules());
-
-    it('logs what your formatter defines', () => {
+  void describe('when you need to override the formatters', () => {
+    void it('logs what your formatter defines', () => {
       const { getMessage, stream } = fakeStream();
       const log = logger.create(
         {
@@ -272,18 +253,16 @@ describe('pino', () => {
 
       const out = getMessage();
 
-      expect(out.hostname).toBeDefined();
-      expect(out.level).toEqual(30);
-      expect(out.pid).toBeDefined();
-      expect(out.msg).toEqual('test');
-      expect(out.user).toEqual('someUser');
+      assert.ok(out.hostname !== undefined);
+      assert.strictEqual(out.level, 30);
+      assert.ok(out.pid !== undefined);
+      assert.strictEqual(out.msg, 'test');
+      assert.strictEqual(out.user, 'someUser');
     });
   });
 
-  describe(logger.create, () => {
-    beforeEach(() => jest.resetModules());
-
-    it('should always give a fresh logger', () => {
+  void describe('logger.create', () => {
+    void it('should always give a fresh logger', () => {
       const fake1 = fakeStream();
       const log1 = logger.create({}, fake1.stream);
 
@@ -293,16 +272,16 @@ describe('pino', () => {
       const log2 = logger.create({}, fake2.stream);
       log2.info({ user: 'otherUser' }, 'other message');
 
-      expect(fake1.getMessage().msg).toBe('some message');
-      expect(fake2.getMessage().msg).toBe('other message');
+      assert.strictEqual(fake1.getMessage().msg, 'some message');
+      assert.strictEqual(fake2.getMessage().msg, 'other message');
     });
   });
 
-  describe('serializer', () => {
-    it('should serialize correctly', () => {
+  void describe('serializer', () => {
+    void it('should serialize correctly', () => {
       const log = logger.create();
 
-      expect(log.util.serialize(new Error('fail')).message).toBe('fail');
+      assert.strictEqual(log.util.serialize(new Error('fail')).message, 'fail');
     });
   });
 });

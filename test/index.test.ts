@@ -1,9 +1,11 @@
+import { describe, it } from 'node:test';
+import assert from 'node:assert/strict';
 import * as logger from '@src/index';
 import type { LogLevels } from '@src/index';
 import { infoLog as log } from '@src/index';
 
-describe('logger', () => {
-  it('should be a function', () => {
+void describe('logger', () => {
+  void it('should be a function', () => {
     const logLevel: LogLevels = 'debug';
     const level: LogLevels = logLevel;
 
@@ -12,17 +14,17 @@ describe('logger', () => {
     const log = logger.create({ level });
     const actual = Object.keys(log);
 
-    expect(typeof log).toBe('object');
-    expect(actual).toStrictEqual(expected);
+    assert.strictEqual(typeof log, 'object');
+    assert.deepStrictEqual(actual, expected);
   });
 
-  it('can log', () => {
+  void it('can log', () => {
     const logFn = () => log.info({ user: 'someUser' }, 'can log stuff');
 
     const actual = logFn();
 
-    expect(typeof log).toBe('object');
-    expect(logFn).not.toThrow();
-    expect(actual).toBeUndefined();
+    assert.strictEqual(typeof log, 'object');
+    assert.doesNotThrow(logFn);
+    assert.strictEqual(actual, undefined);
   });
 });

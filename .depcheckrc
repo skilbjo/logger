@@ -8,6 +8,6 @@ ignores: [
   '@skilbjo/config-rc',
   'depcheck',
   'husky',
-  'ts-node',
+  'tsx',
   'eslint-import-resolver-typescript',
 ]

@@ -6,9 +6,7 @@ export { Logger } from 'winston';
 export type LogLevels = 'debug' | 'error' | 'fatal' | 'info' | 'trace' | 'warn';
 
 export const create = (
-  { level }: { level: LogLevels } = { level: 'debug' },
-  stream?: NodeJS.WriteStream // eslint-disable-line @typescript-eslint/no-unused-vars
-  // ) => {
+  { level }: { level: LogLevels } = { level: 'debug' }
 ): {
   debug: LeveledLogMethod;
   error: LeveledLogMethod;
