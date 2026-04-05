@@ -44,7 +44,7 @@ target/build:
 test: | build target/test
 target/test:
 ifeq ($(is_ci), true)
-	npm test -- --coverage
+	npx c8 --reporter=lcov --reporter=text --reports-dir=target npm test
 else
 	npm test
 endif
