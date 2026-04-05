@@ -46,7 +46,7 @@
     "@skilbjo/config-rc": "1.0.42",
     "@types/http-errors": "2.0.5",
     "depcheck": "1.4.7",
-    "eslint": "9.39.2",
+    "eslint": "10.2.0",
     "http-errors": "2.0.1",
     "husky": "9.1.7",
     "jest": "30.3.0",
