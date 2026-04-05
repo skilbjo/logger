@@ -1,16 +1,19 @@
-import * as pino from '@src/pino';
-import * as reversePino from '@src/reverse-pino';
+import * as pino from '#src/pino.js';
 
-export * from '@src/pino';
-export * as reversePino from '@src/reverse-pino';
-export { create as reverseCreate, type ReverseLogger } from '@src/reverse-pino';
+export * as reversePino from '#src/reverse-pino.js';
+export {
+  create as reverseCreate,
+  type ReverseLogger,
+} from '#src/reverse-pino.js';
+export {
+  create as winstonCreate,
+  type Logger as WinstonLogger,
+} from '#src/winston.js';
 
-export const debugLog = pino.create({ level: 'debug' });
 export const infoLog = pino.create({ level: 'info' });
-export const warnLog = pino.create({ level: 'warn' });
 
-export const reverseLog = reversePino.create({ level: 'info' });
+export const create = pino.create;
+export const mixin = pino.mixin;
 
-const log = infoLog;
-
-export default log;
+export type Logger = pino.Logger;
+export type LogLevels = pino.LogLevels;

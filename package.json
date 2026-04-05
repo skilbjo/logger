@@ -15,6 +15,14 @@
     "type": "git",
     "url": "git+https://github.com/skilbjo/logger.git"
   },
+  "imports": {
+    "#src/*.js": {
+      "node": "./src/*.ts",
+      "import": "./dist/*.js",
+      "types": "./src/*.ts"
+    },
+    "#test/*.js": "./test/*.ts"
+  },
   "scripts": {
     "prepare": "if [ -z \"$GITHUB_ACTIONS\" ]; then npx husky install; fi",
     "exec": "node --import tsx",
@@ -60,6 +68,6 @@
     ]
   },
   "engines": {
-    "node": ">=22.16.0"
+    "node": ">=22.22.0"
   }
 }

@@ -1,8 +1,8 @@
 import { describe, it } from 'node:test';
 import assert from 'node:assert/strict';
-import * as logger from '@src/winston';
-import type { LogLevels } from '@src/winston';
-import { fakeStream } from '@test/utils';
+import * as logger from '#src/winston.js';
+import type { LogLevels } from '#src/winston.js';
+import { fakeStream } from '#test/utils.js';
 
 const level: LogLevels = 'debug';
 

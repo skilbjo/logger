@@ -1,7 +1,7 @@
 import { describe, it } from 'node:test';
 import assert from 'node:assert/strict';
-import { reversePino as reverseLogger } from '@src/index';
-import { fakeStream } from '@test/utils';
+import { reversePino as reverseLogger } from '#src/index.js';
+import { fakeStream } from '#test/utils.js';
 
 void describe('pino', () => {
   void describe('when no config environment variables exist', () => {

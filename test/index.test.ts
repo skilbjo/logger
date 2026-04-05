@@ -1,8 +1,8 @@
 import { describe, it } from 'node:test';
 import assert from 'node:assert/strict';
-import * as logger from '@src/index';
-import type { LogLevels } from '@src/index';
-import { infoLog as log } from '@src/index';
+import * as logger from '#src/index.js';
+import type { LogLevels } from '#src/index.js';
+import { infoLog as log } from '#src/index.js';
 
 void describe('logger', () => {
   void it('should be a function', () => {

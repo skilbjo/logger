@@ -8,12 +8,8 @@
   ],
   "compilerOptions": {
     "paths": {
-      "@src/*": [
-        "./src/*"
-      ],
-      "@test/*": [
-        "./test/*"
-      ]
+      "#src/*": ["./src/*"],
+      "#test/*": ["./test/*"]
     }
   }
 }

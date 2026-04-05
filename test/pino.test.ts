@@ -4,8 +4,8 @@ import type { Bindings } from 'pino';
 
 import createError from 'http-errors';
 import type { HttpError } from 'http-errors';
-import * as logger from '@src/index';
-import { fakeStream } from '@test/utils';
+import * as logger from '#src/index.js';
+import { fakeStream } from '#test/utils.js';
 
 export type HttpErrorResponseFn = () => createError.HttpError;
 
