@@ -9,6 +9,5 @@ ignores: [
   'depcheck',
   'husky',
   'tsx',
-  'c8',
   'eslint-import-resolver-typescript',
 ]

@@ -44,7 +44,7 @@ target/build:
 test: | build target/test
 target/test:
 ifeq ($(is_ci), true)
-	npx c8 --reporter=lcov --reporter=text --reports-dir=target npm test
+	NODE_OPTIONS="--import tsx" node --test --experimental-test-coverage --test-reporter=spec --test-reporter=lcov --test-reporter-destination=stdout --test-reporter-destination=target/lcov.info test/*.test.ts
 else
 	npm test
 endif
