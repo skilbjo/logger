@@ -1,3 +1,10 @@
+## [1.0.38](https://github.com/skilbjo/logger/compare/v1.0.37...v1.0.38) (2026-04-05)
+
+
+### Bug Fixes
+
+* refactor to closer align to node@24 ([aac2852](https://github.com/skilbjo/logger/commit/aac28524c83ec57d73a9512572e8debe4b60239c))
+
 ## [1.0.37](https://github.com/skilbjo/logger/compare/v1.0.36...v1.0.37) (2026-04-03)
 
 
