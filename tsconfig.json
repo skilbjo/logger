@@ -3,8 +3,7 @@
   "extends": "@skilbjo/config-rc/tsconfig.json",
   "include": [
     "src/**/*.ts",
-    "test/**/*.ts",
-    ".eslintrc.cjs"
+    "test/**/*.ts"
   ],
   "compilerOptions": {
     "paths": {

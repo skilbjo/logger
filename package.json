@@ -31,7 +31,7 @@
     "lint": "npm run eslint",
     "test": "node --experimental-strip-types --test",
     "build": "tspc -p tsconfig.build.json",
-    "postbuild": "jq 'del(.files)' package.json >dist/package.json",
+    "postbuild": "jq 'del(.files, .imports)' package.json >dist/package.json",
     "prepare-npm": "jq 'del(.publishConfig, .files) | . + { publishConfig: { registry: \"https://registry.npmjs.org/\", access: \"public\", provenance: true } }' package.json >package2.json && mv package2.json dist/package.json"
   },
   "files": [
