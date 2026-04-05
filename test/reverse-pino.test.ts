@@ -1,36 +1,28 @@
-import { jest } from '@jest/globals';
-import createError from 'http-errors';
+import { describe, it } from 'node:test';
+import assert from 'node:assert/strict';
 import { reversePino as reverseLogger } from '@src/index';
 import { fakeStream } from '@test/utils';
 
-export type HttpErrorResponseFn = () => createError.HttpError;
-
-export type HttpResponseableError = {
-  asHttpErrorResponse: HttpErrorResponseFn;
-};
-
-describe('pino', () => {
-  describe('when no config environment variables exist', () => {
-    beforeEach(() => jest.resetModules());
-
-    it('logs an info-level message', () => {
+void describe('pino', () => {
+  void describe('when no config environment variables exist', () => {
+    void it('logs an info-level message', () => {
       const { getMessage, stream } = fakeStream();
       const log = reverseLogger.create(undefined, stream);
 
       log.info('test - with object', {});
       let out = getMessage();
 
-      expect(out.msg).toEqual('test - with object');
-      expect(out.level).toEqual('info');
+      assert.strictEqual(out.msg, 'test - with object');
+      assert.strictEqual(out.level, 'info');
 
       log.info('test - without object');
       out = getMessage();
 
-      expect(out.msg).toEqual('test - without object');
-      expect(out.level).toEqual('info');
+      assert.strictEqual(out.msg, 'test - without object');
+      assert.strictEqual(out.level, 'info');
     });
 
-    it('logs a warn-level message', () => {
+    void it('logs a warn-level message', () => {
       const { getMessage, stream } = fakeStream();
       const log = reverseLogger.create(undefined, stream);
 
@@ -38,11 +30,11 @@ describe('pino', () => {
 
       const out = getMessage();
 
-      expect(out.msg).toEqual('test');
-      expect(out.level).toEqual('warn');
+      assert.strictEqual(out.msg, 'test');
+      assert.strictEqual(out.level, 'warn');
     });
 
-    it('logs an error-level message', () => {
+    void it('logs an error-level message', () => {
       const { getMessage, stream } = fakeStream();
       const log = reverseLogger.create({ level: 'error' }, stream);
 
@@ -50,11 +42,11 @@ describe('pino', () => {
 
       const out = getMessage();
 
-      expect(out.msg).toEqual('test');
-      expect(out.level).toEqual('error');
+      assert.strictEqual(out.msg, 'test');
+      assert.strictEqual(out.level, 'error');
     });
 
-    it('logs a debug-level message', () => {
+    void it('logs a debug-level message', () => {
       const { getMessage, stream } = fakeStream();
       const log = reverseLogger.create({ level: 'debug' }, stream);
 
@@ -62,15 +54,13 @@ describe('pino', () => {
 
       const out = getMessage();
 
-      expect(out.msg).toEqual('test');
-      expect(out.level).toEqual('debug');
+      assert.strictEqual(out.msg, 'test');
+      assert.strictEqual(out.level, 'debug');
     });
   });
 
-  describe(reverseLogger.create, () => {
-    beforeEach(() => jest.resetModules());
-
-    it('should always give a fresh logger', () => {
+  void describe('reverseLogger.create', () => {
+    void it('should always give a fresh logger', () => {
       const fake1 = fakeStream();
       const log1 = reverseLogger.create({}, fake1.stream);
 
@@ -80,8 +70,8 @@ describe('pino', () => {
       const log2 = reverseLogger.create({}, fake2.stream);
       log2.info('other message', { user: 'otherUser' });
 
-      expect(fake1.getMessage().msg).toBe('some message');
-      expect(fake2.getMessage().msg).toBe('other message');
+      assert.strictEqual(fake1.getMessage().msg, 'some message');
+      assert.strictEqual(fake2.getMessage().msg, 'other message');
     });
   });
 });

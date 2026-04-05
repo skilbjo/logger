@@ -6,18 +6,18 @@ export type Logger = {
   error: ErrorLogFn;
   info: LogFn;
   util: {
-    serialize: (error: Error) => SerializedError;
+    serialize: (arg0: Error) => SerializedError; // eslint-disable-line no-unused-vars
   };
   warn: LogFn;
 };
 
 export type LogLevels = 'debug' | 'error' | 'fatal' | 'info' | 'trace' | 'warn';
 type ErrorLogFn = (
-  object: { err: Error } & Partial<Record<string, unknown>>,
-  message: string
+  arg0: { err: Error } & Partial<Record<string, unknown>>, // eslint-disable-line no-unused-vars
+  arg1: string // eslint-disable-line no-unused-vars
 ) => void;
 
-type LogFn = (object: Record<string, unknown>, message: string) => void;
+type LogFn = (arg0: Record<string, unknown>, arg1: string) => void; // eslint-disable-line no-unused-vars
 
 export const mixin = (): Record<string, unknown> => ({
   lambdaName: process.env.AWS_LAMBDA_FUNCTION_NAME,

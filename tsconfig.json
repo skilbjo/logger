@@ -4,8 +4,7 @@
   "include": [
     "src/**/*.ts",
     "test/**/*.ts",
-    ".eslintrc.cjs",
-    "jest.config.ts"
+    ".eslintrc.cjs"
   ],
   "compilerOptions": {
     "paths": {

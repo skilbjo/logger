@@ -9,7 +9,10 @@ export type ReverseLogger = {
   info: ReverseLogFn;
   warn: ReverseLogFn;
 };
-type ReverseLogFn = (message: string, object?: Record<string, unknown>) => void;
+type ReverseLogFn = (
+  arg0: string, // eslint-disable-line no-unused-vars
+  arg1?: Record<string, unknown> // eslint-disable-line no-unused-vars
+) => void;
 
 export const create = (
   options?: LoggerOptions,

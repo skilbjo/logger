@@ -1,49 +1,49 @@
+import { describe, it } from 'node:test';
+import assert from 'node:assert/strict';
 import * as logger from '@src/winston';
 import type { LogLevels } from '@src/winston';
 import { fakeStream } from '@test/utils';
 
 const level: LogLevels = 'debug';
 
-describe.skip('winston', () => {
-  beforeEach(() => jest.resetModules());
-
-  describe('general', () => {
-    it('logs', () => {
+void describe.skip('winston', () => {
+  void describe('general', () => {
+    void it('logs', () => {
       const log = logger.create({ level });
 
       log.debug('test message ');
     });
 
-    it('logs an info-level message', () => {
+    void it('logs an info-level message', () => {
       const { getMessage, stream } = fakeStream();
       const log = logger.create({ level }, stream);
       log.info('test', {});
       const out = getMessage();
-      expect(out.msg).toEqual('test');
-      expect(out.level).toEqual('info');
+      assert.strictEqual(out.msg, 'test');
+      assert.strictEqual(out.level, 'info');
     });
 
-    it('logs an warn-level message', () => {
+    void it('logs an warn-level message', () => {
       const { getMessage, stream } = fakeStream();
       const log = logger.create({ level }, stream);
       log.warn('test', {});
       const out = getMessage();
-      expect(out.msg).toEqual('test');
-      expect(out.level).toEqual('warn');
+      assert.strictEqual(out.msg, 'test');
+      assert.strictEqual(out.level, 'warn');
     });
 
-    it('logs an debug-level message', () => {
+    void it('logs an debug-level message', () => {
       const { getMessage, stream } = fakeStream();
       const log = logger.create({ level: 'debug' }, stream);
       log.debug('test', {});
       const out = getMessage();
-      expect(out.msg).toEqual('test');
-      expect(out.level).toEqual('debug');
+      assert.strictEqual(out.msg, 'test');
+      assert.strictEqual(out.level, 'debug');
     });
   });
 
-  describe('logger.create', () => {
-    it('should always give a fresh logger', () => {
+  void describe('logger.create', () => {
+    void it('should always give a fresh logger', () => {
       const fake1 = fakeStream();
       const log1 = logger.create({ level }, fake1.stream);
 
@@ -53,8 +53,8 @@ describe.skip('winston', () => {
       const log2 = logger.create({ level }, fake2.stream);
       log2.info('other message', { user: 'otherUser' });
 
-      expect(fake1.getMessage().msg).toBe('some message');
-      expect(fake2.getMessage().msg).toBe('other message');
+      assert.strictEqual(fake1.getMessage().msg, 'some message');
+      assert.strictEqual(fake2.getMessage().msg, 'other message');
     });
   });
 });
