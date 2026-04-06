@@ -1,3 +1,10 @@
+## [1.0.40](https://github.com/skilbjo/logger/compare/v1.0.39...v1.0.40) (2026-04-06)
+
+
+### Bug Fixes
+
+* add debugLog ([5f6d572](https://github.com/skilbjo/logger/commit/5f6d5729c442b487fef0236a46051ab046a0b566))
+
 ## [1.0.39](https://github.com/skilbjo/logger/compare/v1.0.38...v1.0.39) (2026-04-05)
 
 
