@@ -27,4 +27,9 @@ void describe('logger', () => {
     assert.doesNotThrow(logFn);
     assert.strictEqual(actual, undefined);
   });
+
+  void it('exports debugLog', () => {
+    assert.strictEqual(typeof logger.debugLog, 'object');
+    assert.strictEqual(typeof logger.debugLog.debug, 'function');
+  });
 });
