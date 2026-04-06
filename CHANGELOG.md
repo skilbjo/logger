@@ -1,3 +1,10 @@
+## [1.0.41](https://github.com/skilbjo/logger/compare/v1.0.40...v1.0.41) (2026-04-06)
+
+
+### Bug Fixes
+
+* include winston ([0dd00ff](https://github.com/skilbjo/logger/commit/0dd00fff13dee85a8150a9ab1fc09a75b2e6e563))
+
 ## [1.0.40](https://github.com/skilbjo/logger/compare/v1.0.39...v1.0.40) (2026-04-06)
 
 
