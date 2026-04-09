@@ -12,6 +12,7 @@ export {
 
 export const infoLog = pino.create({ level: 'info' });
 export const debugLog = pino.create({ level: 'debug' });
+export const warnLog = pino.create({ level: 'warn' });
 
 export const create = pino.create;
 export const mixin = pino.mixin;
