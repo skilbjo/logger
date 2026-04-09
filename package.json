@@ -5,6 +5,10 @@
   "main": "index.js",
   "type": "module",
   "typings": "index.d.ts",
+  "exports": {
+    ".": { "types": "./index.d.ts", "import": "./index.js" },
+    "./*": { "types": "./*.d.ts", "import": "./*.js" }
+  },
   "private": false,
   "publishConfig": {
     "registry": "https://npm.pkg.github.com",
@@ -67,6 +71,6 @@
     ]
   },
   "engines": {
-    "node": ">=22.22.0"
+    "node": ">=24.0.0"
   }
 }
