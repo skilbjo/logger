@@ -1,3 +1,10 @@
+## [1.0.43](https://github.com/skilbjo/logger/compare/v1.0.42...v1.0.43) (2026-04-09)
+
+
+### Bug Fixes
+
+* add warn log ([69c0f37](https://github.com/skilbjo/logger/commit/69c0f37d811d22680b9781a93982f736f02a9c8c))
+
 ## [1.0.42](https://github.com/skilbjo/logger/compare/v1.0.41...v1.0.42) (2026-04-09)
 
 
