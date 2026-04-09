@@ -1,3 +1,10 @@
+## [1.0.42](https://github.com/skilbjo/logger/compare/v1.0.41...v1.0.42) (2026-04-09)
+
+
+### Bug Fixes
+
+* node@24 ([7131f6a](https://github.com/skilbjo/logger/commit/7131f6aacc37c5cd25b591321075ae03272c014e))
+
 ## [1.0.41](https://github.com/skilbjo/logger/compare/v1.0.40...v1.0.41) (2026-04-06)
 
 
