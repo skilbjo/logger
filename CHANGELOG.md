@@ -1,3 +1,10 @@
+## [1.0.44](https://github.com/skilbjo/logger/compare/v1.0.43...v1.0.44) (2026-04-11)
+
+
+### Bug Fixes
+
+* remove re-export ([14f0c76](https://github.com/skilbjo/logger/commit/14f0c76143ce6a423e5dbe7d184d6e18d8969cbe))
+
 ## [1.0.43](https://github.com/skilbjo/logger/compare/v1.0.42...v1.0.43) (2026-04-09)
 
 
