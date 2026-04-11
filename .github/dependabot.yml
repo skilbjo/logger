@@ -16,16 +16,10 @@ updates:
     assignees:
       - skilbjo
     rebase-strategy: auto
-    ignore:
-      - dependency-name: aws-sdk
-      - dependency-name: '@aws-sdk/*'
-      - dependency-name: husky
-      - dependency-name: '@commitlint/cli'
-      - dependency-name: '@commitlint/config-angular'
     versioning-strategy: increase
     open-pull-requests-limit: 15
     commit-message:
-      prefix: fix
+      prefix: build
       include: scope
 
   - package-ecosystem: github-actions
@@ -38,5 +32,5 @@ updates:
       # - dependency-name: cycjimmy/semantic-release-action
     open-pull-requests-limit: 5
     commit-message:
-      prefix: fix
+      prefix: ci
       include: scope

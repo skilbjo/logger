@@ -5,49 +5,38 @@
   "main": "index.js",
   "type": "module",
   "typings": "index.d.ts",
-  "exports": {
-    ".": { "types": "./index.d.ts", "import": "./index.js" },
-    "./*": { "types": "./*.d.ts", "import": "./*.js" }
-  },
   "private": false,
   "publishConfig": {
     "registry": "https://npm.pkg.github.com",
     "access": "public",
     "provenance": true
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/skilbjo/logger.git"
-  },
-  "imports": {
-    "#src/*.js": {
-      "node": "./src/*.ts",
-      "import": "./dist/*.js",
-      "types": "./src/*.ts"
-    },
-    "#test/*.js": "./test/*.ts"
-  },
-  "scripts": {
-    "prepare": "if [ -z \"$GITHUB_ACTIONS\" ]; then npx husky install; fi",
-    "exec": "node",
-    "eslint": "eslint .",
-    "depcheck": "depcheck",
-    "lint": "npm run eslint",
-    "test": "node --test",
-    "build": "tspc -p tsconfig.build.json",
-    "postbuild": "jq 'del(.files, .imports)' package.json >dist/package.json",
-    "prepare-npm": "jq 'del(.publishConfig, .files) | . + { publishConfig: { registry: \"https://registry.npmjs.org/\", access: \"public\", provenance: true } }' package.json >package2.json && mv package2.json dist/package.json"
-  },
-  "files": [
-    "dist"
-  ],
-  "license": "ISC",
   "author": "skilbjo",
   "keywords": [
     "api",
     "sdk",
     "openapi"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/skilbjo/logger.git"
+  },
+  "files": [
+    "dist"
+  ],
+  "license": "ISC",
+  "scripts": {
+    "prepare": "if [ -z \"$GITHUB_ACTIONS\" ]; then npx husky install; fi",
+    "exec": "node",
+    "eslint": "eslint .",
+    "depcheck": "depcheck",
+    "lint": "npm run eslint",
+    "lint:fix": "eslint --fix .",
+    "test": "node --test",
+    "build": "tspc -p tsconfig.build.json",
+    "postbuild": "jq 'del(.files, .imports)' package.json >dist/package.json",
+    "prepare-npm": "jq 'del(.publishConfig, .files) | . + { publishConfig: { registry: \"https://registry.npmjs.org/\", access: \"public\", provenance: true } }' package.json >package2.json && mv package2.json dist/package.json"
+  },
   "dependencies": {
     "pino": "10.3.1",
     "winston": "3.19.0"
@@ -64,6 +53,18 @@
     "ts-patch": "3.3.0",
     "typescript": "6.0.2",
     "typescript-transform-paths": "3.5.6"
+  },
+  "imports": {
+    "#src/*.js": {
+      "node": "./src/*.ts",
+      "import": "./dist/*.js",
+      "types": "./src/*.ts"
+    },
+    "#test/*.js": "./test/*.ts"
+  },
+  "exports": {
+    ".": { "types": "./index.d.ts", "import": "./index.js" },
+    "./*": { "types": "./*.d.ts", "import": "./*.js" }
   },
   "commitlint": {
     "extends": [
