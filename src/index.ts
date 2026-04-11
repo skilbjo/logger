@@ -5,10 +5,6 @@ export {
   create as reverseCreate,
   type ReverseLogger,
 } from '#src/reverse-pino.js';
-export {
-  create as winstonCreate,
-  type Logger as WinstonLogger,
-} from '#src/winston.js';
 
 export const infoLog = pino.create({ level: 'info' });
 export const debugLog = pino.create({ level: 'debug' });
