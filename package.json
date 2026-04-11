@@ -29,11 +29,11 @@
   },
   "scripts": {
     "prepare": "if [ -z \"$GITHUB_ACTIONS\" ]; then npx husky install; fi",
-    "exec": "node --experimental-strip-types",
+    "exec": "node",
     "eslint": "eslint .",
     "depcheck": "depcheck",
     "lint": "npm run eslint",
-    "test": "node --experimental-strip-types --test",
+    "test": "node --test",
     "build": "tspc -p tsconfig.build.json",
     "postbuild": "jq 'del(.files, .imports)' package.json >dist/package.json",
     "prepare-npm": "jq 'del(.publishConfig, .files) | . + { publishConfig: { registry: \"https://registry.npmjs.org/\", access: \"public\", provenance: true } }' package.json >package2.json && mv package2.json dist/package.json"
@@ -71,6 +71,6 @@
     ]
   },
   "engines": {
-    "node": ">=24.0.0"
+    "node": ">=24.14.1"
   }
 }

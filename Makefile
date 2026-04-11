@@ -7,9 +7,6 @@ version = $(shell jq -r '.version' package.json)
 .DEFAULT_GOAL := ci
 is_ci := $(shell if [ -n "$(GITHUB_ACTIONS)" ]; then echo 'true'; else echo 'false'; fi)
 
-node-bin-dir := ./node_modules/.bin
-nx = $(node-bin-dir)/$(1)
-
 very-clean: clean
 	rm -rf dist target node_modules/ package-lock.json
 .PHONY: very-clean
@@ -44,7 +41,7 @@ target/build:
 test: | build target/test
 target/test:
 ifeq ($(is_ci), true)
-	node --experimental-strip-types --test --experimental-test-coverage --test-reporter=spec --test-reporter=lcov --test-reporter-destination=stdout --test-reporter-destination=target/lcov.info test/*.test.ts
+	node --test --experimental-test-coverage --test-reporter=spec --test-reporter=lcov --test-reporter-destination=stdout --test-reporter-destination=target/lcov.info test/*.test.ts
 else
 	npm test
 endif
