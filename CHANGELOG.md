@@ -1,3 +1,10 @@
+## [1.0.45](https://github.com/skilbjo/logger/compare/v1.0.44...v1.0.45) (2026-04-12)
+
+
+### Bug Fixes
+
+* ts strict mode compat ([a9a05fa](https://github.com/skilbjo/logger/commit/a9a05fabbce18a795556c643b9526ce172fc5fd2))
+
 ## [1.0.44](https://github.com/skilbjo/logger/compare/v1.0.43...v1.0.44) (2026-04-11)
 
 
