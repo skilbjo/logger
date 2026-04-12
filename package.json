@@ -44,7 +44,7 @@
   "devDependencies": {
     "@commitlint/cli": "20.5.0",
     "@commitlint/config-angular": "20.5.0",
-    "@skilbjo/config-rc": "1.0.46",
+    "@skilbjo/config-rc": "1.0.48",
     "@types/http-errors": "2.0.5",
     "depcheck": "1.4.7",
     "eslint": "9.39.2",
@@ -63,8 +63,14 @@
     "#test/*.js": "./test/*.ts"
   },
   "exports": {
-    ".": { "types": "./index.d.ts", "import": "./index.js" },
-    "./*": { "types": "./*.d.ts", "import": "./*.js" }
+    ".": {
+      "types": "./index.d.ts",
+      "import": "./index.js"
+    },
+    "./*": {
+      "types": "./*.d.ts",
+      "import": "./*.js"
+    }
   },
   "commitlint": {
     "extends": [
