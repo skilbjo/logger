@@ -1,3 +1,10 @@
+## [1.0.47](https://github.com/skilbjo/logger/compare/v1.0.46...v1.0.47) (2026-04-13)
+
+
+### Bug Fixes
+
+* bump config-rc to 1.0.54 ([f953a9f](https://github.com/skilbjo/logger/commit/f953a9f2084310e2c1750c38b8f2358a238331e5))
+
 ## [1.0.46](https://github.com/skilbjo/logger/compare/v1.0.45...v1.0.46) (2026-04-13)
 
 
