@@ -1,3 +1,10 @@
+## [1.0.46](https://github.com/skilbjo/logger/compare/v1.0.45...v1.0.46) (2026-04-13)
+
+
+### Bug Fixes
+
+* bump config-rc to 1.0.53, remove void from test files ([f70c88a](https://github.com/skilbjo/logger/commit/f70c88aba022093da104881a2e8f5bb0aa4e8556))
+
 ## [1.0.45](https://github.com/skilbjo/logger/compare/v1.0.44...v1.0.45) (2026-04-12)
 
 
