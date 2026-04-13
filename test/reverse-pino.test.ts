@@ -3,9 +3,9 @@ import assert from 'node:assert/strict';
 import { reversePino as reverseLogger } from '#src/index.js';
 import { fakeStream } from '#test/utils.js';
 
-void describe('pino', () => {
-  void describe('when no config environment variables exist', () => {
-    void it('logs an info-level message', () => {
+describe('pino', () => {
+  describe('when no config environment variables exist', () => {
+    it('logs an info-level message', () => {
       const { getMessage, stream } = fakeStream();
       const log = reverseLogger.create(undefined, stream);
 
@@ -22,7 +22,7 @@ void describe('pino', () => {
       assert.strictEqual(out.level, 'info');
     });
 
-    void it('logs a warn-level message', () => {
+    it('logs a warn-level message', () => {
       const { getMessage, stream } = fakeStream();
       const log = reverseLogger.create(undefined, stream);
 
@@ -34,7 +34,7 @@ void describe('pino', () => {
       assert.strictEqual(out.level, 'warn');
     });
 
-    void it('logs an error-level message', () => {
+    it('logs an error-level message', () => {
       const { getMessage, stream } = fakeStream();
       const log = reverseLogger.create({ level: 'error' }, stream);
 
@@ -46,7 +46,7 @@ void describe('pino', () => {
       assert.strictEqual(out.level, 'error');
     });
 
-    void it('logs a debug-level message', () => {
+    it('logs a debug-level message', () => {
       const { getMessage, stream } = fakeStream();
       const log = reverseLogger.create({ level: 'debug' }, stream);
 
@@ -59,8 +59,8 @@ void describe('pino', () => {
     });
   });
 
-  void describe('reverseLogger.create', () => {
-    void it('should always give a fresh logger', () => {
+  describe('reverseLogger.create', () => {
+    it('should always give a fresh logger', () => {
       const fake1 = fakeStream();
       const log1 = reverseLogger.create({}, fake1.stream);
 

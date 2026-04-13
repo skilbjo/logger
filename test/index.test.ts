@@ -4,8 +4,8 @@ import * as logger from '#src/index.js';
 import type { LogLevels } from '#src/index.js';
 import { infoLog as log } from '#src/index.js';
 
-void describe('logger', () => {
-  void it('should be a function', () => {
+describe('logger', () => {
+  it('should be a function', () => {
     const logLevel: LogLevels = 'debug';
     const level: LogLevels = logLevel;
 
@@ -18,7 +18,7 @@ void describe('logger', () => {
     assert.deepStrictEqual(actual, expected);
   });
 
-  void it('can log', () => {
+  it('can log', () => {
     const logFn = () => log.info({ user: 'someUser' }, 'can log stuff');
 
     const actual = logFn();
@@ -28,7 +28,7 @@ void describe('logger', () => {
     assert.strictEqual(actual, undefined);
   });
 
-  void it('exports debugLog', () => {
+  it('exports debugLog', () => {
     assert.strictEqual(typeof logger.debugLog, 'object');
     assert.strictEqual(typeof logger.debugLog.debug, 'function');
   });

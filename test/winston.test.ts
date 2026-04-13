@@ -6,15 +6,15 @@ import { fakeStream } from '#test/utils.js';
 
 const level: LogLevels = 'debug';
 
-void describe.skip('winston', () => {
-  void describe('general', () => {
-    void it('logs', () => {
+describe.skip('winston', () => {
+  describe('general', () => {
+    it('logs', () => {
       const log = logger.create({ level });
 
       log.debug('test message ');
     });
 
-    void it('logs an info-level message', () => {
+    it('logs an info-level message', () => {
       const { getMessage, stream } = fakeStream();
       const log = logger.create({ level }, stream);
       log.info('test', {});
@@ -23,7 +23,7 @@ void describe.skip('winston', () => {
       assert.strictEqual(out.level, 'info');
     });
 
-    void it('logs an warn-level message', () => {
+    it('logs an warn-level message', () => {
       const { getMessage, stream } = fakeStream();
       const log = logger.create({ level }, stream);
       log.warn('test', {});
@@ -32,7 +32,7 @@ void describe.skip('winston', () => {
       assert.strictEqual(out.level, 'warn');
     });
 
-    void it('logs an debug-level message', () => {
+    it('logs an debug-level message', () => {
       const { getMessage, stream } = fakeStream();
       const log = logger.create({ level: 'debug' }, stream);
       log.debug('test', {});
@@ -42,8 +42,8 @@ void describe.skip('winston', () => {
     });
   });
 
-  void describe('logger.create', () => {
-    void it('should always give a fresh logger', () => {
+  describe('logger.create', () => {
+    it('should always give a fresh logger', () => {
       const fake1 = fakeStream();
       const log1 = logger.create({ level }, fake1.stream);
 

@@ -25,9 +25,9 @@ class InternalServerError extends Error implements HttpResponseableError {
   }
 }
 
-void describe('pino', () => {
-  void describe('when no config environment variables exist', () => {
-    void it('logs an info-level message', () => {
+describe('pino', () => {
+  describe('when no config environment variables exist', () => {
+    it('logs an info-level message', () => {
       const { getMessage, stream } = fakeStream();
       const log = logger.create(undefined, stream);
 
@@ -39,7 +39,7 @@ void describe('pino', () => {
       assert.strictEqual(out.level, 'info');
     });
 
-    void it('logs a warn-level message (implicit)', () => {
+    it('logs a warn-level message (implicit)', () => {
       const { getMessage, stream } = fakeStream();
       const log = logger.create(undefined, stream);
 
@@ -51,7 +51,7 @@ void describe('pino', () => {
       assert.strictEqual(out.level, 'warn');
     });
 
-    void it('logs a warn-level message (explcit)', () => {
+    it('logs a warn-level message (explcit)', () => {
       const { getMessage, stream } = fakeStream();
       const log = logger.create({ level: 'warn' }, stream);
 
@@ -63,7 +63,7 @@ void describe('pino', () => {
       assert.strictEqual(out.level, 'warn');
     });
 
-    void it('logs an error-level message', () => {
+    it('logs an error-level message', () => {
       const { getMessage, stream } = fakeStream();
       const log = logger.create({ level: 'error' }, stream);
 
@@ -75,7 +75,7 @@ void describe('pino', () => {
       assert.strictEqual(out.level, 'error');
     });
 
-    void it('logs a debug-level message', () => {
+    it('logs a debug-level message', () => {
       const { getMessage, stream } = fakeStream();
       const log = logger.create({ level: 'debug' }, stream);
 
@@ -88,22 +88,22 @@ void describe('pino', () => {
     });
   });
 
-  void describe('when the expected environment variables are set', () => {
-    void beforeEach(() => {
+  describe('when the expected environment variables are set', () => {
+    beforeEach(() => {
       process.env.AWS_LAMBDA_FUNCTION_NAME = 'fakeLambdaFunctionName';
       process.env.AWS_LAMBDA_LOG_STREAM_NAME = 'fakeLogStreamName';
       process.env._X_AMZN_TRACE_ID = 'fakeTraceId';
       process.env._X_AMZN_REQUEST_ID = 'fakeRequestId';
     });
 
-    void afterEach(() => {
+    afterEach(() => {
       delete process.env.AWS_LAMBDA_FUNCTION_NAME;
       delete process.env.AWS_LAMBDA_LOG_STREAM_NAME;
       delete process.env._X_AMZN_TRACE_ID;
       delete process.env._X_AMZN_REQUEST_ID;
     });
 
-    void it('logs an info-level message', () => {
+    it('logs an info-level message', () => {
       const { getMessage, stream } = fakeStream();
       const log = logger.create(undefined, stream);
 
@@ -120,8 +120,8 @@ void describe('pino', () => {
     });
   });
 
-  void describe('when the payload of the log message is complex', () => {
-    void it('handles logging an error correctly', () => {
+  describe('when the payload of the log message is complex', () => {
+    it('handles logging an error correctly', () => {
       const seedMsg = 'test';
       const expectedMsg = seedMsg;
       const expectedLevel = 'error';
@@ -141,7 +141,7 @@ void describe('pino', () => {
       assert.ok(stack.startsWith('Error: FailBus\n'));
     });
 
-    void it('handles logging an error correctly', () => {
+    it('handles logging an error correctly', () => {
       const seedMsg = 'test';
       const expectedMsg = seedMsg;
       const expectedLevel = 'error';
@@ -161,7 +161,7 @@ void describe('pino', () => {
       assert.ok(stack.startsWith('Error: FailBus\n'));
     });
 
-    void it('can also throw additional non-error info in the payload (in addition to the error)', () => {
+    it('can also throw additional non-error info in the payload (in addition to the error)', () => {
       const { getMessage, stream } = fakeStream();
       const log = logger.create(undefined, stream);
 
@@ -175,7 +175,7 @@ void describe('pino', () => {
       assert.ok(out.stack.startsWith('Error: FailBus\n'));
     });
 
-    void it('handles logging an object correctly', () => {
+    it('handles logging an object correctly', () => {
       const { getMessage, stream } = fakeStream();
       const log = logger.create(undefined, stream);
 
@@ -194,8 +194,8 @@ void describe('pino', () => {
     });
   });
 
-  void describe('when you need something redacted', () => {
-    void it('redacts the specified value', () => {
+  describe('when you need something redacted', () => {
+    it('redacts the specified value', () => {
       const { getMessage, stream } = fakeStream();
       const log = logger.create({ redact: ['password'] }, stream);
 
@@ -210,8 +210,8 @@ void describe('pino', () => {
     });
   });
 
-  void describe('when you need to override the mixin', () => {
-    void it('logs what your mixin returns', () => {
+  describe('when you need to override the mixin', () => {
+    it('logs what your mixin returns', () => {
       const { getMessage, stream } = fakeStream();
       const mixin = (): Record<string, unknown> => ({
         yoDawg: 'I love functions',
@@ -230,8 +230,8 @@ void describe('pino', () => {
     });
   });
 
-  void describe('when you need to override the formatters', () => {
-    void it('logs what your formatter defines', () => {
+  describe('when you need to override the formatters', () => {
+    it('logs what your formatter defines', () => {
       const { getMessage, stream } = fakeStream();
       const log = logger.create(
         {
@@ -261,8 +261,8 @@ void describe('pino', () => {
     });
   });
 
-  void describe('logger.create', () => {
-    void it('should always give a fresh logger', () => {
+  describe('logger.create', () => {
+    it('should always give a fresh logger', () => {
       const fake1 = fakeStream();
       const log1 = logger.create({}, fake1.stream);
 
@@ -277,8 +277,8 @@ void describe('pino', () => {
     });
   });
 
-  void describe('serializer', () => {
-    void it('should serialize correctly', () => {
+  describe('serializer', () => {
+    it('should serialize correctly', () => {
       const log = logger.create();
 
       assert.strictEqual(log.util.serialize(new Error('fail')).message, 'fail');
