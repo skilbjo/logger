@@ -33,8 +33,8 @@
     "lint": "npm run eslint",
     "lint:fix": "eslint --fix .",
     "test": "node --test",
-    "build": "tspc -p tsconfig.build.json",
-    "postbuild": "jq 'del(.files, .imports)' package.json >dist/package.json",
+    "build": "tsgo -p tsconfig.build.json",
+    "postbuild": "node -e \"const f=require('fs'),p=JSON.parse(f.readFileSync('package.json','utf8'));delete p.files;p.imports=Object.fromEntries(Object.entries(p.imports??{}).map(([k,v])=>[k,Object.fromEntries(Object.entries(v).filter(([c])=>c!=='node').map(([c,s])=>{const x=s.replace('./dist/','./').replace('./src/','./');return[c,x.endsWith('.ts')?x.slice(0,-3)+'.d.ts':x]}))]));f.writeFileSync('dist/package.json',JSON.stringify(p,null,2))\"",
     "prepare-npm": "jq 'del(.publishConfig, .files) | . + { publishConfig: { registry: \"https://registry.npmjs.org/\", access: \"public\", provenance: true } }' package.json >package2.json && mv package2.json dist/package.json"
   },
   "dependencies": {
@@ -50,9 +50,7 @@
     "eslint": "9.39.2",
     "http-errors": "2.0.1",
     "husky": "9.1.7",
-    "ts-patch": "3.3.0",
-    "typescript": "6.0.3",
-    "typescript-transform-paths": "3.5.6"
+    "@typescript/native-preview": "7.0.0-dev.20260423.1"
   },
   "imports": {
     "#src/*.js": {
