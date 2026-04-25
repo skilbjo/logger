@@ -44,7 +44,7 @@
   "devDependencies": {
     "@commitlint/cli": "20.5.0",
     "@commitlint/config-angular": "20.5.0",
-    "@skilbjo/config-rc": "1.0.54",
+    "@skilbjo/config-rc": "1.0.55",
     "@types/http-errors": "2.0.5",
     "depcheck": "1.4.7",
     "eslint": "9.39.2",
