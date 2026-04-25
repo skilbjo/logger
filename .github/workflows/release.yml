@@ -10,7 +10,7 @@ defaults:
     shell: bash
 
 jobs:
-  publish-artifact:
+  publish-artefact:
     runs-on: ubuntu-24.04-arm
     timeout-minutes: 10
     permissions:
