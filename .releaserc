@@ -2,9 +2,6 @@
   "plugins": [
     "@semantic-release/commit-analyzer",
     "@semantic-release/release-notes-generator",
-    ["@semantic-release/changelog", {
-      "changelogFile": "CHANGELOG.md"
-    }],
     ["@semantic-release/exec", {
       "verifyConditionsCmd": "make ci",
     }],
@@ -13,10 +10,6 @@
     }],
     ["@semantic-release/npm", {
       "pkgRoot": "dist"
-    }],
-    ["@semantic-release/git", {
-      "assets": ["CHANGELOG.md"],
-      "message": "docs(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
     }]
   ]
 }
