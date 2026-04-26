@@ -42,7 +42,7 @@
     "winston": "3.19.0"
   },
   "devDependencies": {
-    "@commitlint/cli": "20.5.0",
+    "@commitlint/cli": "20.5.2",
     "@commitlint/config-angular": "20.5.0",
     "@skilbjo/config-rc": "1.0.55",
     "@types/http-errors": "2.0.5",
