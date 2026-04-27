@@ -7,4 +7,6 @@ ignores: [
   '@skilbjo/config-rc',
   'depcheck',
   'husky',
+
+  'typescript',
 ]

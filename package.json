@@ -50,7 +50,7 @@
     "eslint": "10.2.1",
     "http-errors": "2.0.1",
     "husky": "9.1.7",
-    "@typescript/native-preview": "7.0.0-dev.20260426.1"
+    "typescript": "npm:@typescript/native-preview@7.0.0-dev.20260426.1"
   },
   "imports": {
     "#src/*.js": {
