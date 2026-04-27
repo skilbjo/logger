@@ -34,7 +34,7 @@
     "lint:fix": "eslint --fix .",
     "test": "node --test",
     "build": "tsgo -p tsconfig.build.json",
-    "postbuild": "node -e \"const f=require('fs'),p=JSON.parse(f.readFileSync('package.json','utf8'));delete p.files;p.imports=Object.fromEntries(Object.entries(p.imports??{}).map(([k,v])=>[k,Object.fromEntries(Object.entries(v).filter(([c])=>c!=='node').map(([c,s])=>{const x=s.replace('./dist/','./').replace('./src/','./');return[c,x.endsWith('.ts')?x.slice(0,-3)+'.d.ts':x]}))]));f.writeFileSync('dist/package.json',JSON.stringify(p,null,2))\"",
+    "postbuild": "node -e \"const f=require('fs'),{dirname,join,relative}=require('path'),p=JSON.parse(f.readFileSync('package.json','utf8'));delete p.files;p.imports=Object.fromEntries(Object.entries(p.imports??{}).map(([k,v])=>[k,Object.fromEntries(Object.entries(v).filter(([c])=>c!=='node').map(([c,s])=>{const x=s.replace('./dist/','./').replace('./src/','./');return[c,x.endsWith('.ts')?x.slice(0,-3)+'.d.ts':x]}))]));f.writeFileSync('dist/package.json',JSON.stringify(p,null,2));function fix(dir,root){for(const e of f.readdirSync(dir,{withFileTypes:true})){const fp=join(dir,e.name);if(e.isDirectory())fix(fp,root);else if(fp.endsWith('.js')||fp.endsWith('.d.ts')){const o=f.readFileSync(fp,'utf8'),u=o.replace(/from '#src\\/([^']+)'/g,(_,m)=>{const t=join(root,m);let r=relative(dirname(fp),t);if(!r.startsWith('.'))r='./'+r;return\\`from '\\${r}'\\`});if(o!==u)f.writeFileSync(fp,u)}}}fix('dist','dist')\"",
     "prepare-npm": "jq 'del(.publishConfig, .files) | . + { publishConfig: { registry: \"https://registry.npmjs.org/\", access: \"public\", provenance: true } }' package.json >package2.json && mv package2.json dist/package.json"
   },
   "dependencies": {
