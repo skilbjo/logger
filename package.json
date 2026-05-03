@@ -47,7 +47,7 @@
     "@skilbjo/config-rc": "1.0.55",
     "@types/http-errors": "2.0.5",
     "depcheck": "1.4.7",
-    "eslint": "10.2.1",
+    "eslint": "10.3.0",
     "http-errors": "2.0.1",
     "husky": "9.1.7",
     "@typescript/native-preview": "7.0.0-dev.20260426.1"
