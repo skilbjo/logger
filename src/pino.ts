@@ -20,11 +20,11 @@ type ErrorLogFn = (
 type LogFn = (arg0: Record<string, unknown>, arg1: string) => void; // eslint-disable-line no-unused-vars
 
 export const mixin = (): Record<string, unknown> => ({
-  lambdaName: process.env.AWS_LAMBDA_FUNCTION_NAME,
-  logGroup: process.env.AWS_LAMBDA_LOG_GROUP_NAME,
-  logStream: process.env.AWS_LAMBDA_LOG_STREAM_NAME,
-  requestId: process.env._X_AMZN_REQUEST_ID,
-  xRayTraceId: process.env._X_AMZN_TRACE_ID,
+  lambdaName: process.env['AWS_LAMBDA_FUNCTION_NAME'],
+  logGroup: process.env['AWS_LAMBDA_LOG_GROUP_NAME'],
+  logStream: process.env['AWS_LAMBDA_LOG_STREAM_NAME'],
+  requestId: process.env['_X_AMZN_REQUEST_ID'],
+  xRayTraceId: process.env['_X_AMZN_TRACE_ID'],
 });
 
 export const create = (
@@ -39,11 +39,11 @@ export const create = (
         level: (level: string): Record<string, unknown> => ({ level }),
       },
       mixin: () => ({
-        lambdaName: process.env.AWS_LAMBDA_FUNCTION_NAME,
-        logGroup: process.env.AWS_LAMBDA_LOG_GROUP_NAME,
-        logStream: process.env.AWS_LAMBDA_LOG_STREAM_NAME,
-        requestId: process.env._X_AMZN_REQUEST_ID,
-        xRayTraceId: process.env._X_AMZN_TRACE_ID,
+        lambdaName: process.env['AWS_LAMBDA_FUNCTION_NAME'],
+        logGroup: process.env['AWS_LAMBDA_LOG_GROUP_NAME'],
+        logStream: process.env['AWS_LAMBDA_LOG_STREAM_NAME'],
+        requestId: process.env['_X_AMZN_REQUEST_ID'],
+        xRayTraceId: process.env['_X_AMZN_TRACE_ID'],
       }),
       timestamp: pino.stdTimeFunctions.isoTime,
       ...options,

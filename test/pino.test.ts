@@ -90,17 +90,17 @@ describe('pino', () => {
 
   describe('when the expected environment variables are set', () => {
     beforeEach(() => {
-      process.env.AWS_LAMBDA_FUNCTION_NAME = 'fakeLambdaFunctionName';
-      process.env.AWS_LAMBDA_LOG_STREAM_NAME = 'fakeLogStreamName';
-      process.env._X_AMZN_TRACE_ID = 'fakeTraceId';
-      process.env._X_AMZN_REQUEST_ID = 'fakeRequestId';
+      process.env['AWS_LAMBDA_FUNCTION_NAME'] = 'fakeLambdaFunctionName';
+      process.env['AWS_LAMBDA_LOG_STREAM_NAME'] = 'fakeLogStreamName';
+      process.env['_X_AMZN_TRACE_ID'] = 'fakeTraceId';
+      process.env['_X_AMZN_REQUEST_ID'] = 'fakeRequestId';
     });
 
     afterEach(() => {
-      delete process.env.AWS_LAMBDA_FUNCTION_NAME;
-      delete process.env.AWS_LAMBDA_LOG_STREAM_NAME;
-      delete process.env._X_AMZN_TRACE_ID;
-      delete process.env._X_AMZN_REQUEST_ID;
+      delete process.env['AWS_LAMBDA_FUNCTION_NAME'];
+      delete process.env['AWS_LAMBDA_LOG_STREAM_NAME'];
+      delete process.env['_X_AMZN_TRACE_ID'];
+      delete process.env['_X_AMZN_REQUEST_ID'];
     });
 
     it('logs an info-level message', () => {
