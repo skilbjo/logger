@@ -63,3 +63,26 @@ export const create = (
     warn: pinoLogger.warn.bind(pinoLogger),
   };
 };
+
+// `create()` touches `process.stdout` immediately (the default destination
+// when no stream is passed) — calling it at module scope, as the package-level
+// singletons below do, means merely importing this module throws in any
+// bundle built for a non-Node target (e.g. a browser IIFE via esbuild, which
+// unlike webpack doesn't polyfill `process`). Deferring construction to first
+// use means importing the module has no side effects, and consumers that
+// never actually log (e.g. a component's error-path logger) never pay the
+// Node-only cost at all.
+export const lazy = (options?: LoggerOptions): Logger => {
+  let instance: Logger | undefined;
+  const get = (): Logger => (instance ??= create(options));
+
+  return {
+    debug: (...args) => get().debug(...args),
+    error: (...args) => get().error(...args),
+    info: (...args) => get().info(...args),
+    util: {
+      serialize: (error: Error): SerializedError => get().util.serialize(error),
+    },
+    warn: (...args) => get().warn(...args),
+  };
+};

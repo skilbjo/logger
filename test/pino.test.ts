@@ -5,6 +5,7 @@ import type { Bindings } from 'pino';
 import createError from 'http-errors';
 import type { HttpError } from 'http-errors';
 import * as logger from '#src/index.js';
+import * as pino from '#src/pino.js';
 import { fakeStream } from '#test/utils.js';
 
 export type HttpErrorResponseFn = () => createError.HttpError;
@@ -282,6 +283,47 @@ describe('pino', () => {
       const log = logger.create();
 
       assert.strictEqual(log.util.serialize(new Error('fail')).message, 'fail');
+    });
+  });
+
+  describe('lazy', () => {
+    // Regression test: `create()` reads `process.stdout` immediately (the
+    // default destination when no stream is passed). Package-level
+    // singletons built with `create()` at module scope therefore threw on
+    // import in any bundle built for a non-Node target (e.g. a browser IIFE
+    // via esbuild, which — unlike webpack — doesn't polyfill `process`).
+    // `lazy()` must defer that access until the logger is actually used.
+    it('does not touch process.stdout at construction time', () => {
+      const stdoutDescriptor = Object.getOwnPropertyDescriptor(
+        process,
+        'stdout'
+      );
+      assert.ok(stdoutDescriptor, 'process.stdout should be defined in Node');
+
+      Object.defineProperty(process, 'stdout', {
+        configurable: true,
+        get(): never {
+          throw new Error('process.stdout accessed eagerly');
+        },
+      });
+
+      try {
+        const log = pino.lazy({ level: 'info' });
+
+        assert.strictEqual(typeof log, 'object');
+        assert.strictEqual(typeof log.info, 'function');
+      } finally {
+        Object.defineProperty(process, 'stdout', stdoutDescriptor);
+      }
+    });
+
+    it('constructs the underlying logger on first use, and reuses it after', () => {
+      const log = pino.lazy({ level: 'info' });
+
+      assert.doesNotThrow(() =>
+        log.info({}, 'first call constructs the logger')
+      );
+      assert.doesNotThrow(() => log.info({}, 'second call reuses it'));
     });
   });
 });

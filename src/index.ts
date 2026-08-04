@@ -6,9 +6,9 @@ export {
   type ReverseLogger,
 } from '#src/reverse-pino.js';
 
-export const infoLog: pino.Logger = pino.create({ level: 'info' });
-export const debugLog: pino.Logger = pino.create({ level: 'debug' });
-export const warnLog: pino.Logger = pino.create({ level: 'warn' });
+export const infoLog: pino.Logger = pino.lazy({ level: 'info' });
+export const debugLog: pino.Logger = pino.lazy({ level: 'debug' });
+export const warnLog: pino.Logger = pino.lazy({ level: 'warn' });
 
 export const create: typeof pino.create = pino.create;
 export const mixin: typeof pino.mixin = pino.mixin;
