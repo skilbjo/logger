@@ -16,6 +16,11 @@ updates:
     assignees:
       - skilbjo
     rebase-strategy: auto
+    groups:
+      minor-and-patch:
+        update-types:
+          - minor
+          - patch
     versioning-strategy: increase
     open-pull-requests-limit: 15
     commit-message:
@@ -30,6 +35,10 @@ updates:
       - skilbjo
     # ignore:
       # - dependency-name: cycjimmy/semantic-release-action
+    groups:
+      github-actions:
+        patterns:
+          - '*'
     open-pull-requests-limit: 5
     commit-message:
       prefix: ci
