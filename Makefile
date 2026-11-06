@@ -34,7 +34,7 @@ target/lint:
 build: | install target/build
 target/build:
 	npm run build
-	npm run depcheck
+	npm run knip
 	mkdir -p $(@D) && touch $@
 .PHONY: build
 

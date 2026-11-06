@@ -1,0 +1,7 @@
+{
+  "$schema": "https://unpkg.com/knip@6/schema.json",
+  "ignore": ["**/node_modules/**"],
+  "ignoreBinaries": ["jq"],
+  "ignoreDependencies": [
+  ]
+}
