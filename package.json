@@ -38,8 +38,7 @@
     "knip": "knip --dependencies"
   },
   "dependencies": {
-    "pino": "10.4.0",
-    "winston": "3.19.0"
+    "pino": "10.4.0"
   },
   "devDependencies": {
     "@commitlint/cli": "21.2.4",
